@@ -1,0 +1,28 @@
+:root{
+/* Ore — sampled from the mark's four facets (#F2C46D #E0A13F #CF8A32 #A8661F) */
+--ore-50:#FDF7EA;--ore-100:#FAEBCB;--ore-200:#F6D99D;--ore-300:#F2C46D;--ore-400:#E0A13F;--ore-500:#CF8A32;--ore-600:#A8661F;--ore-700:#824C17;--ore-800:#5C3511;--ore-900:#3A220B;
+/* Slate — strata line #5E6574 and wordmark ink #16181D */
+--slate-0:#FFFFFF;--slate-25:#FBFBFA;--slate-50:#F5F6F7;--slate-100:#ECEEF1;--slate-200:#DADDE3;--slate-300:#BCC1CA;--slate-400:#8E95A2;--slate-500:#5E6574;--slate-600:#4A505C;--slate-700:#363A43;--slate-800:#23262D;--slate-900:#16181D;--slate-950:#0D0E11;
+/* Semantic hues */
+--green-100:#DDF1E5;--green-600:#2F8F5B;--green-700:#236C44;
+--red-100:#F9E1DC;--red-600:#C2412D;--red-700:#9A3222;
+--blue-100:#DFE9F4;--blue-600:#3A6EA5;--blue-700:#2C557F;
+
+/* Semantic aliases — light */
+--bg-app:var(--slate-25);--surface-card:var(--slate-0);--surface-sunken:var(--slate-50);--surface-raised:var(--slate-0);--surface-inverse:var(--slate-900);
+--text-strong:var(--slate-900);--text-body:var(--slate-700);--text-muted:var(--slate-500);--text-subtle:var(--slate-400);--text-inverse:var(--slate-0);--text-on-accent:var(--slate-900);
+--border-subtle:var(--slate-100);--border-default:var(--slate-200);--border-strong:var(--slate-300);
+--accent:var(--ore-500);--accent-hover:var(--ore-400);--accent-press:var(--ore-600);--accent-soft:var(--ore-50);--accent-soft-border:var(--ore-200);--accent-text:var(--ore-700);
+--focus-ring:var(--ore-300);
+--success:var(--green-600);--success-soft:var(--green-100);--success-text:var(--green-700);
+--warning:var(--ore-500);--warning-soft:var(--ore-100);--warning-text:var(--ore-700);
+--danger:var(--red-600);--danger-soft:var(--red-100);--danger-text:var(--red-700);
+--info:var(--blue-600);--info-soft:var(--blue-100);--info-text:var(--blue-700);
+--overlay-scrim:rgba(13,14,17,.48);
+}
+[data-theme="dark"]{
+--bg-app:var(--slate-950);--surface-card:var(--slate-900);--surface-sunken:#111317;--surface-raised:var(--slate-800);--surface-inverse:var(--slate-50);
+--text-strong:var(--slate-50);--text-body:var(--slate-200);--text-muted:var(--slate-400);--text-subtle:var(--slate-500);--text-inverse:var(--slate-900);
+--border-subtle:#1D2026;--border-default:var(--slate-800);--border-strong:var(--slate-700);
+--accent-soft:rgba(207,138,50,.14);--accent-soft-border:rgba(207,138,50,.35);--accent-text:var(--ore-300);
+}
