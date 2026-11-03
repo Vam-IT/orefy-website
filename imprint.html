@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title id="page-title">Impressum · Orefy</title>
+<link rel="icon" href="assets/orefy-favicon.svg">
+<link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/colors.css">
+<link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/typography.css">
+<link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/effects.css">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<style>
+:root{--font-sans:'Inter',ui-sans-serif,system-ui,sans-serif;--font-display:'Inter',ui-sans-serif,system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:#08090B;color:var(--slate-300);font-family:var(--font-sans);font-size:15px;line-height:1.7;-webkit-font-smoothing:antialiased}
+.nav{position:sticky;top:0;z-index:20;background:rgba(7,8,10,.94);backdrop-filter:blur(8px);border-bottom:1px solid #1D2026}
+.wrap{max-width:820px;margin:0 auto;padding:0 24px}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.nav img{height:24px;display:block}
+.nav-actions{display:flex;align-items:center;gap:18px}
+.lang-switch{display:inline-flex;align-items:center;gap:6px;background:#15181E;border:1px solid #232832;border-radius:9999px;padding:3px 8px;font-size:12px;font-weight:600}
+.lang-switch button{background:none;border:none;color:#8B95A5;cursor:pointer;padding:2px 4px;font-size:12px;font-weight:600;font-family:inherit;line-height:1;border-radius:4px;transition:color .15s}
+.lang-switch button:hover{color:#fff}
+.lang-switch button.on{color:#F58220;cursor:default}
+.lang-sep{color:#2F3642;font-size:11px;user-select:none}
+.nav a.back{color:var(--slate-400);font-size:14px;font-weight:500;text-decoration:none;transition:color .2s}
+.nav a.back:hover{color:#fff}
+main{padding:56px 0 88px}
+h1{font-size:32px;font-weight:800;letter-spacing:-0.02em;color:var(--slate-50);margin:0 0 32px}
+h2,h3{color:var(--slate-100);font-size:18px;font-weight:700;margin:28px 0 10px}
+p{margin:0 0 16px}
+strong{color:var(--slate-50)}
+a{color:var(--ore-400);text-decoration:none}
+a:hover{color:var(--ore-300);text-decoration:underline}
+.card{background:var(--slate-900);border:1px solid var(--slate-800);border-radius:var(--radius-xl);padding:32px;box-shadow:0 12px 32px rgba(0,0,0,.35)}
+footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid #1D2026;text-align:center}
+[data-lang-block]{display:none}
+html[lang="de"] [data-lang-block="de"]{display:block}
+html[lang="en"] [data-lang-block="en"]{display:block}
+@media (max-width:600px){
+  .wrap{padding:0 16px}
+  main{padding:36px 0 60px}
+  .card{padding:20px}
+  h1{font-size:26px}
+  .nav-actions{gap:12px}
+}
+</style>
+</head>
+<body>
+<nav class="nav"><div class="wrap">
+  <a href="/"><img src="assets/orefy-logo-dark.svg" alt="orefy"></a>
+  <div class="nav-actions">
+    <div class="lang-switch">
+      <button id="btn-de" class="on" onclick="setLang('de')" aria-label="Deutsch">DE</button>
+      <span class="lang-sep">|</span>
+      <button id="btn-en" onclick="setLang('en')" aria-label="English">EN</button>
+    </div>
+    <a href="/" class="back" id="back-link">← Zurück zur Startseite</a>
+  </div>
+</div></nav>
+
+<main><div class="wrap">
+  <!-- Deutsch -->
+  <div data-lang-block="de">
+    <h1>Impressum</h1>
+    <div class="card">
+      <h3>Angaben gemäß § 5 DDG</h3>
+      <p>
+        <strong>VAMIT UG (haftungsbeschränkt)</strong><br>
+        Petersfeldstraße 16<br>
+        46395 Bocholt<br>
+        Deutschland
+      </p>
+
+      <h3>Vertreten durch</h3>
+      <p>
+        <strong>Geschäftsführer:</strong> Veselin Kolev
+      </p>
+
+      <h3>Registereintrag</h3>
+      <p>
+        <strong>Registergericht:</strong> Amtsgericht Coesfeld<br>
+        <strong>Registernummer:</strong> HRB 23796
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>
+        <strong>Telefon:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br>
+        <strong>E-Mail:</strong> <a href="mailto:info@orefy.cloud">info@orefy.cloud</a><br>
+        <strong>Web:</strong> <a href="https://vam-it.com/" target="_blank" rel="noopener noreferrer">vam-it.com</a>
+      </p>
+
+      <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+      <p>
+        Veselin Kolev<br>
+        Petersfeldstraße 16<br>
+        46395 Bocholt<br>
+        Deutschland
+      </p>
+    </div>
+  </div>
+
+  <!-- English -->
+  <div data-lang-block="en">
+    <h1>Imprint</h1>
+    <div class="card">
+      <h3>Information pursuant to Section 5 DDG</h3>
+      <p>
+        <strong>VAMIT UG (haftungsbeschränkt)</strong><br>
+        Petersfeldstraße 16<br>
+        46395 Bocholt<br>
+        Germany
+      </p>
+
+      <h3>Represented by</h3>
+      <p>
+        <strong>Managing Director:</strong> Veselin Kolev
+      </p>
+
+      <h3>Commercial Register</h3>
+      <p>
+        <strong>Registration Court:</strong> Local Court (Amtsgericht) Coesfeld<br>
+        <strong>Registration Number:</strong> HRB 23796
+      </p>
+
+      <h3>Contact</h3>
+      <p>
+        <strong>Phone:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br>
+        <strong>E-Mail:</strong> <a href="mailto:info@orefy.cloud">info@orefy.cloud</a><br>
+        <strong>Web:</strong> <a href="https://vam-it.com/" target="_blank" rel="noopener noreferrer">vam-it.com</a>
+      </p>
+
+      <h3>Responsible for Content pursuant to Section 18 (2) MStV</h3>
+      <p>
+        Veselin Kolev<br>
+        Petersfeldstraße 16<br>
+        46395 Bocholt<br>
+        Germany
+      </p>
+    </div>
+  </div>
+</div></main>
+
+<footer><div class="wrap">
+  <span>© 2026 Orefy · VAMIT UG (haftungsbeschränkt)</span>
+</div></footer>
+
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  try { localStorage.setItem('orefy_lang', l); } catch(e){}
+  document.getElementById('btn-de').className = (l === 'de' ? 'on' : '');
+  document.getElementById('btn-en').className = (l === 'en' ? 'on' : '');
+  document.getElementById('page-title').textContent = (l === 'de' ? 'Impressum · Orefy' : 'Imprint · Orefy');
+  document.getElementById('back-link').textContent = (l === 'de' ? '← Zurück zur Startseite' : '← Back to home');
+}
+(function() {
+  var saved = 'de';
+  try { saved = localStorage.getItem('orefy_lang') || (navigator.language.startsWith('de') ? 'de' : 'en'); } catch(e){}
+  setLang(saved === 'en' ? 'en' : 'de');
+})();
+</script>
+</body>
+</html>
