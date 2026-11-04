@@ -167,7 +167,7 @@ function Contact({ lang = 'en' }) {
     <div className="form">
       <span style={{ fontSize: 14, color: 'var(--text-body)' }}>{t.interest}</span>
       <a href="mailto:info@orefy.cloud" className="form-btn-link" style={{ textDecoration: 'none' }}>
-        <Button size="lg" iconRight={<Ico d={I.arrow} />}>{t.btn}</Button>
+        <Button className="btn-prem" size="lg" iconRight={<Ico d={I.arrow} />}>{t.btn}</Button>
       </a>
       <span className="mono" style={{ fontSize: 12, color: 'var(--text-muted)' }}>info@orefy.cloud</span>
     </div>
@@ -345,15 +345,32 @@ function App() {
 
   const [modal, setModal] = React.useState(null);
   const t = T[lang];
+  const [scrolled, setScrolled] = React.useState(false);
+  const [active, setActive] = React.useState('');
+  const navRef = React.useRef(null);
+  React.useEffect(() => {
+    const onScroll = () => {
+      const y = window.scrollY;
+      setScrolled(y > 24);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (navRef.current) navRef.current.style.setProperty('--p', max > 0 ? Math.min(1, y / max) : 0);
+      let cur = '';
+      ['how', 'contact'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) cur = id;
+      });
+      setActive(cur);
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
 
   return (<>
-    <nav className="nav"><div className="wrap">
+    <nav ref={navRef} className={'nav' + (scrolled ? ' scrolled' : '')}><div className="wrap">
       <a href="#top"><img src="assets/orefy-logo-dark.svg" alt="orefy" /></a>
-      <div className="nav-links"><a href="#how">{t.nav.how}</a><a href="#contact">{t.nav.early}</a></div>
-      <div className="nav-r">
-        <span className="nav-badge" data-theme="dark"><Badge tone="ore" dot>{t.nav.badge}</Badge></span>
-        <Button size="sm" onClick={() => window.scrollTo({ top: document.getElementById('contact').offsetTop - 64, behavior: 'smooth' })}>{t.nav.contact}</Button>
-      </div>
+      <div className="nav-links"><a href="#how" className={active === 'how' ? 'active' : ''}>{t.nav.how}</a><a href="#contact" className={active === 'contact' ? 'active' : ''}>{t.nav.early}</a></div>
+      <span className="nav-prog"></span>
     </div></nav>
 
     <header className="hero" id="top" data-theme="dark" data-screen-label="Hero">
@@ -363,8 +380,8 @@ function App() {
           <h1 style={{ marginTop: 18 }}>{t.hero.h1_pre}<em>{t.hero.h1_em}</em></h1>
           <p className="lede">{t.hero.lede_pre}<strong>{t.hero.lede_strong}</strong></p>
           <div className="cta-row">
-            <a href="#contact" style={{ textDecoration: 'none' }}><Button size="lg" iconRight={<Ico d={I.arrow} />}>{t.hero.cta_contact}</Button></a>
-            <a href="#how" style={{ textDecoration: 'none' }}><Button size="lg" variant="ghost" style={{ color: 'var(--slate-200)' }}>{t.hero.cta_how}</Button></a>
+            <a href="#contact" style={{ textDecoration: 'none' }}><Button className="btn-prem" size="lg" iconRight={<Ico d={I.arrow} />}>{t.hero.cta_contact}</Button></a>
+            <a href="#how" style={{ textDecoration: 'none' }}><Button className="btn-glass" size="lg" variant="ghost" style={{ color: 'var(--slate-200)' }}>{t.hero.cta_how}</Button></a>
           </div>
         </div>
         <HeroConsole lang={lang} />
