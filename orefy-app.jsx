@@ -59,7 +59,8 @@ const T = {
     how: {
       over: "How it works",
       h2: "Raw infrastructure in. Refined code out.",
-      p: "Four steps from an environment nobody fully understands to one you can review, version and move.",
+      step: "Step",
+      of: "of",
     },
     cta: {
       over: "Available from Q1 2027",
@@ -128,7 +129,7 @@ function HeroConsole({ lang = 'en' }) {
   );
 }
 
-function Pipeline({ lang = 'en' }) {
+function DesktopPipeline({ lang = 'en' }) {
   const steps = T[lang].steps;
   const [a, setA] = React.useState(0);
   const [key, setKey] = React.useState(0);
@@ -155,6 +156,94 @@ function Pipeline({ lang = 'en' }) {
       </div>
     </div>
   );
+}
+
+function useIsMobile() {
+  const query = '(max-width:960px)';
+  const [mobile, setMobile] = React.useState(() => window.matchMedia(query).matches);
+  React.useEffect(() => {
+    const mq = window.matchMedia(query);
+    const onChange = (e) => setMobile(e.matches);
+    mq.addEventListener('change', onChange);
+    return () => mq.removeEventListener('change', onChange);
+  }, []);
+  return mobile;
+}
+
+function MobilePipeline({ lang = 'en' }) {
+  const steps = T[lang].steps;
+  const t = T[lang].how;
+  const [a, setA] = React.useState(0);
+  const [key, setKey] = React.useState(0);
+  const [inView, setInView] = React.useState(true);
+  const root = React.useRef(null);
+  const touch = React.useRef(null);
+  const userNav = React.useRef(false);
+
+  const go = (n) => { userNav.current = true; setA(n); setKey(k => k + 1); };
+
+  React.useEffect(() => {
+    const io = new IntersectionObserver(([e]) => setInView(e.isIntersecting), { threshold: 0.15 });
+    io.observe(root.current);
+    return () => io.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (!inView) return;
+    const timer = setTimeout(() => setA(x => (x + 1) % steps.length), 8000);
+    return () => clearTimeout(timer);
+  }, [a, key, inView, steps.length]);
+
+  React.useEffect(() => {
+    if (!userNav.current) return;
+    userNav.current = false;
+    const navH = parseInt(getComputedStyle(root.current).getPropertyValue('--nav-h'), 10);
+    const top = root.current.getBoundingClientRect().top;
+    if (top < navH) window.scrollTo({ top: window.scrollY + top - navH });
+  }, [a]);
+
+  const onTouchStart = (e) => {
+    const p = e.touches[0];
+    touch.current = e.target.closest('.code-l,.code,.table-wrap') ? null : { x: p.clientX, y: p.clientY };
+  };
+  const onTouchEnd = (e) => {
+    if (!touch.current) return;
+    const p = e.changedTouches[0];
+    const dx = p.clientX - touch.current.x;
+    const dy = p.clientY - touch.current.y;
+    touch.current = null;
+    if (Math.abs(dx) < 60 || Math.abs(dx) < Math.abs(dy) * 1.5) return;
+    go(Math.min(steps.length - 1, Math.max(0, a + (dx < 0 ? 1 : -1))));
+  };
+
+  const S = steps[a];
+  const P = STEP_PANELS[S.k];
+
+  return (
+    <div className="mpipe" ref={root}>
+      <div className="mstepper">
+        {steps.map((s, n) => (
+          <button key={s.k + (n === a ? key : '')} className={(n === a ? 'on' : '') + (n < a ? ' done' : '')} aria-current={n === a ? 'step' : undefined} onClick={() => go(n)}>
+            <i></i>{s_tab(s)}
+          </button>
+        ))}
+      </div>
+      <div className="mstep" key={a} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+        <span className="mstep-count">{t.step} {a + 1} {t.of} {steps.length}</span>
+        <h3>{S.t}</h3>
+        <p>{S.d}</p>
+        <div className="panel">
+          <div className="panel-h"><strong>{S.h}</strong></div>
+          <div className="panel-b"><P lang={lang} /></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function Pipeline({ lang = 'en' }) {
+  const mobile = useIsMobile();
+  return mobile ? <MobilePipeline lang={lang} /> : <DesktopPipeline lang={lang} />;
 }
 
 function s_tab(s) {
