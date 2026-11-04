@@ -1,81 +1,6 @@
 const { Button, Badge, Input } = window.OrefyDesignSystem_e8d108;
 
 const T = {
-  de: {
-    nav: {
-      how: "So funktioniert's",
-      early: "Early Access",
-      badge: "Verfügbar ab Q1 2027",
-      contact: "Kontakt",
-    },
-    hero: {
-      over: "Vom ClickOps zum Code",
-      h1_pre: "Volle Kontrolle über ",
-      h1_em: "Ihre Cloud.",
-      lede_pre: "Von manueller ClickOps-Infrastruktur zu ",
-      lede_strong: "Best-Practice modularem Infrastructure as Code.",
-      cta_contact: "Kontakt aufnehmen",
-      cta_how: "Funktionsweise ansehen",
-    },
-    console: {
-      raw_h: "Live-Umgebung",
-      raw_tag: "roh",
-      refined_h: "Infrastructure as Code",
-      refined_tag: "strukturiert",
-      codified: "kodifiziert",
-      verified: "Verifiziert · Kein Drift",
-      codifying: "Wird kodifiziert…",
-    },
-    steps: [
-      {
-        k: 'Discover',
-        tab: 'Entdecken',
-        t: 'Entdecken, was in Ihrer Cloud läuft',
-        d: 'Read-only-Scan über alle Accounts und Regionen hinweg. Jede Ressource, wer sie erstellt hat und ob sie überhaupt verwaltet wird.',
-        h: 'Inventar · 3 Accounts',
-      },
-      {
-        k: 'Codify',
-        tab: 'Kodifizieren',
-        t: 'In sauberen, modularen Infrastructure as Code verwandeln',
-        d: 'Wiederverwendbare Module, getrennte Umgebungen, lesbare Variablen. Die Struktur, die ein Senior Platform Engineer schreiben würde.',
-        h: 'Generierter Code · Terraform / OpenTofu',
-      },
-      {
-        k: 'Verify',
-        tab: 'Verifizieren',
-        t: 'Sicherstellen, dass sich nichts verändert hat',
-        d: 'Jedes Modul wird gegen die Live-Umgebung geplant. Code wird erst übernommen, wenn der Diff exakt null beträgt.',
-        h: 'Verifizierung · Plan gegen Live-Zustand',
-      },
-      {
-        k: 'Scan',
-        tab: 'Scannen',
-        t: 'Auf Sicherheits- und Compliance-Lücken prüfen',
-        d: 'Befunde gemappt auf relevante Standards, mit Korrekturen direkt als Code-Änderungen geliefert.',
-        h: 'Befunde · 4 offen',
-      },
-    ],
-    how: {
-      over: "So funktioniert's",
-      h2: "Rohe Infrastruktur rein. Strukturierter Code raus.",
-      p: "Vier Schritte von einer unübersichtlichen Cloud-Umgebung zu versioniertem, überprüfbarem und portierbarem Code.",
-    },
-    cta: {
-      over: "Verfügbar ab Q1 2027",
-      h2_pre: "Bringen Sie Struktur ",
-      h2_em: "ins Chaos.",
-      sub: "Gehören Sie zu den ersten Teams, die ihre Cloud wieder voll unter Kontrolle bringen.",
-      interest: "Interesse an Early Access? Schreiben Sie uns und wir melden uns bei Ihnen.",
-      btn: "Kontakt aufnehmen",
-    },
-    footer: {
-      copy: "© 2026 Orefy · VAMIT UG",
-      imprint: "Impressum",
-      privacy: "Datenschutz",
-      contact: "Kontakt",
-    },
-  },
   en: {
     nav: {
       how: "How it works",
@@ -160,7 +85,7 @@ const STEP_PANELS = {
   Scan: ScanPanel,
 };
 
-function HeroConsole({ lang = 'de' }) {
+function HeroConsole({ lang = 'en' }) {
   const t = T[lang].console;
   const res = ['vpc-0a3f91c2', 'subnet-private-a', 'prod-orders-db', 'alb-checkout', 'ecs-cluster-core', 's3-media-uploads'];
   const [i, setI] = React.useState(0);
@@ -203,7 +128,7 @@ function HeroConsole({ lang = 'de' }) {
   );
 }
 
-function Pipeline({ lang = 'de' }) {
+function Pipeline({ lang = 'en' }) {
   const steps = T[lang].steps;
   const [a, setA] = React.useState(0);
   const [key, setKey] = React.useState(0);
@@ -236,7 +161,7 @@ function s_tab(s) {
   return s.tab || s.k;
 }
 
-function Contact({ lang = 'de' }) {
+function Contact({ lang = 'en' }) {
   const t = T[lang].cta;
   return (
     <div className="form">
@@ -276,299 +201,147 @@ function Modal({ title, children, onClose }) {
   );
 }
 
-function ImprintContent({ lang = 'de' }) {
-  if (lang === 'en') {
-    return (<>
-      <h3>Information pursuant to Section 5 DDG</h3>
-      <p>
-        <strong>VAMIT UG (haftungsbeschränkt)</strong><br />
-        Petersfeldstraße 16<br />
-        46395 Bocholt<br />
-        Germany
-      </p>
-
-      <h3>Represented by</h3>
-      <p>
-        <strong>Managing Director:</strong> Veselin Kolev
-      </p>
-
-      <h3>Commercial Register</h3>
-      <p>
-        <strong>Registration Court:</strong> Local Court (Amtsgericht) Coesfeld<br />
-        <strong>Registration Number:</strong> HRB 23796
-      </p>
-
-      <h3>Contact</h3>
-      <p>
-        <strong>Phone:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br />
-        <strong>E-Mail:</strong> <a href="mailto:info@orefy.cloud">info@orefy.cloud</a><br />
-        <strong>Web:</strong> <a href="https://vam-it.com/" target="_blank" rel="noopener noreferrer">vam-it.com</a>
-      </p>
-
-      <h3>Responsible for Content pursuant to Section 18 (2) MStV</h3>
-      <p>
-        Veselin Kolev<br />
-        Petersfeldstraße 16<br />
-        46395 Bocholt<br />
-        Germany
-      </p>
-      <p style={{ marginTop: 24, fontSize: 13, color: 'var(--text-muted)' }}>
-        <a href="imprint.html" target="_blank" rel="noopener noreferrer">Open in standalone tab ↗</a>
-      </p>
-    </>);
-  }
-
+function ImprintContent() {
   return (<>
-    <h3>Angaben gemäß § 5 DDG</h3>
+    <h3>Information pursuant to Section 5 DDG</h3>
     <p>
       <strong>VAMIT UG (haftungsbeschränkt)</strong><br />
       Petersfeldstraße 16<br />
       46395 Bocholt<br />
-      Deutschland
+      Germany
     </p>
 
-    <h3>Vertreten durch</h3>
+    <h3>Represented by</h3>
     <p>
-      <strong>Geschäftsführer:</strong> Veselin Kolev
+      <strong>Managing Director:</strong> Veselin Kolev
     </p>
 
-    <h3>Registereintrag</h3>
+    <h3>Commercial Register</h3>
     <p>
-      <strong>Registergericht:</strong> Amtsgericht Coesfeld<br />
-      <strong>Registernummer:</strong> HRB 23796
+      <strong>Registration Court:</strong> Local Court (Amtsgericht) Coesfeld<br />
+      <strong>Registration Number:</strong> HRB 23796
     </p>
 
-    <h3>Kontakt</h3>
+    <h3>Contact</h3>
     <p>
-      <strong>Telefon:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br />
+      <strong>Phone:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br />
       <strong>E-Mail:</strong> <a href="mailto:info@orefy.cloud">info@orefy.cloud</a><br />
       <strong>Web:</strong> <a href="https://vam-it.com/" target="_blank" rel="noopener noreferrer">vam-it.com</a>
     </p>
 
-    <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+    <h3>Responsible for Content pursuant to Section 18 (2) MStV</h3>
     <p>
       Veselin Kolev<br />
       Petersfeldstraße 16<br />
       46395 Bocholt<br />
-      Deutschland
+      Germany
     </p>
     <p style={{ marginTop: 24, fontSize: 13, color: 'var(--text-muted)' }}>
-      <a href="imprint.html" target="_blank" rel="noopener noreferrer">In separatem Tab öffnen ↗</a>
+      <a href="imprint.html" target="_blank" rel="noopener noreferrer">Open in standalone tab ↗</a>
     </p>
   </>);
 }
 
-function PrivacyContent({ lang = 'de' }) {
-  if (lang === 'en') {
-    return (<>
-      <p>
-        This Privacy Policy informs you about the processing of personal data when using our website. This privacy policy applies to our website. We do not operate any social media profiles or further online presences to which this policy would need to apply.
-      </p>
-
-      <h3>I. Fundamentals</h3>
-      <p>
-        Personal data includes all information relating to an identified or identifiable natural person (e.g. name, address, email address, IP address, user behavior). Regarding the terms used, reference is made to the definitions in Art. 4 GDPR.
-      </p>
-
-      <h3>II. Who is the Controller?</h3>
-      <p>
-        Responsible for data processing on this website is:<br />
-        <strong>VAMIT UG (haftungsbeschränkt)</strong><br />
-        Petersfeldstraße 16<br />
-        46395 Bocholt, Germany<br />
-        Represented by Managing Director: Veselin Kolev<br />
-        Commercial Register: Local Court Coesfeld, HRB 23796<br />
-        E-Mail: <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>
-      </p>
-
-      <h3>III. How do you reach our Data Protection Officer?</h3>
-      <p>
-        We are not legally obliged to appoint a Data Protection Officer. If you have questions regarding the processing of your data, you may contact us directly at any time (contact details see above).
-      </p>
-
-      <h3>IV. Who is affected by data processing?</h3>
-      <p>
-        All visitors to our website are referred to as "Users". Data is processed strictly within the framework of statutory provisions (GDPR, DDG, TDDDG).
-      </p>
-
-      <h3>V. What data do we process and for what purposes?</h3>
-      <p>
-        Our website is purely informational without user accounts, login, registration, or payment processing.
-      </p>
-      <p>
-        <strong>Completely Local Delivery (No Third-Country Transfers):</strong> All content, including typography (Inter, JetBrains Mono), scripts, and assets, is delivered <strong>entirely locally</strong> from our web server. When browsing our website, <strong>no data or IP addresses are transferred to external third parties (such as Google Fonts or external CDNs)</strong>.
-      </p>
-      <p>
-        <strong>Server Log Files:</strong> When you access our website, technical connection data is automatically processed to display the website and ensure IT stability and security:
-      </p>
-      <ul>
-        <li>IP address of the requesting device</li>
-        <li>Date and time of server access</li>
-        <li>Name and URL of the requested file</li>
-        <li>Access status / HTTP response code</li>
-        <li>Transferred data volume</li>
-        <li>Referrer URL (previously visited page)</li>
-        <li>Browser type, version, and operating system</li>
-      </ul>
-      <p>
-        The processing of server log data is strictly necessary for delivering the website and maintaining security. Legal basis is <strong>Art. 6 (1) (f) GDPR</strong> (legitimate interest).
-      </p>
-      <p>
-        <strong>Contact via E-Mail:</strong> If you contact us via email (e.g. at <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), we process the data you voluntarily provide (email address, name, message content) to handle your inquiry. Legal basis: Art. 6 (1) (f) GDPR or Art. 6 (1) (b) GDPR for contract-related requests.
-      </p>
-
-      <h3>VI. Do we use Cookies?</h3>
-      <p>
-        Our website sets <strong>neither first-party nor third-party cookies</strong>. No tracking or marketing data is stored in Local Storage or Session Storage. No cross-site profiling or tracking takes place. Therefore, a cookie consent banner is not required under Section 25 (2) TDDDG.
-      </p>
-
-      <h3>VII. Storage Duration</h3>
-      <p>
-        Server log files are processed short-term for IT security purposes and deleted routinely. Inquiries via email are deleted once the matter is conclusively resolved and no statutory retention requirements apply.
-      </p>
-
-      <h3>VIII. What are your Rights?</h3>
-      <p>Under the GDPR, you have the following rights towards us:</p>
-      <ul>
-        <li>Right of Access (Art. 15 GDPR);</li>
-        <li>Right to Rectification of inaccurate data (Art. 16 GDPR);</li>
-        <li>Right to Erasure ("Right to be forgotten") (Art. 17 GDPR);</li>
-        <li>Right to Restriction of processing (Art. 18 GDPR);</li>
-        <li>Right to Data Portability (Art. 20 GDPR);</li>
-        <li>Right to lodge a complaint with a supervisory authority (Art. 77 GDPR);</li>
-        <li><strong>Right to Object on grounds relating to your particular situation (Art. 21 GDPR).</strong></li>
-      </ul>
-
-      <h3>IX. Competent Supervisory Authority</h3>
-      <p>
-        Competent supervisory authority for VAMIT UG (haftungsbeschränkt):<br />
-        <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong><br />
-        Kavalleriestraße 2–4, 40213 Düsseldorf, Germany<br />
-        Website: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>
-      </p>
-
-      <h3>X. Data Security</h3>
-      <p>
-        Our website is transmitted strictly encrypted using modern SSL/TLS (HTTPS).
-      </p>
-      <p style={{ marginTop: 24, fontSize: 13, color: 'var(--text-muted)' }}>
-        Status: November 2026 · <a href="privacy.html" target="_blank" rel="noopener noreferrer">Open standalone page ↗</a>
-      </p>
-    </>);
-  }
-
+function PrivacyContent() {
   return (<>
     <p>
-      Hier informieren wir Sie über die Verarbeitung personenbezogener Daten bei Nutzung unserer Internetseite. Diese Datenschutzerklärung gilt für unsere Internetseite. Wir betreiben keine Social-Media-Profile und keine weiteren Online-Präsenzen, auf die diese Erklärung ebenfalls Anwendung finden müsste.
+      This Privacy Policy informs you about the processing of personal data when using our website. This privacy policy applies to our website. We do not operate any social media profiles or further online presences to which this policy would need to apply.
     </p>
 
-    <h3>I. Grundlegendes</h3>
+    <h3>I. Fundamentals</h3>
     <p>
-      Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind, also u. a. Name, Anschrift, E-Mail-Adresse, IP-Adresse oder auch das Nutzerverhalten.
-      Hinsichtlich der verwendeten Begriffe wird auf die Definitionen in Art. 4 DSGVO verwiesen.
+      Personal data includes all information relating to an identified or identifiable natural person (e.g. name, address, email address, IP address, user behavior). Regarding the terms used, reference is made to the definitions in Art. 4 GDPR.
     </p>
 
-    <h3>II. Wer ist die verantwortliche Stelle?</h3>
+    <h3>II. Who is the Controller?</h3>
     <p>
-      Wir sind für die Verarbeitung Ihrer Daten verantwortlich:<br />
+      Responsible for data processing on this website is:<br />
       <strong>VAMIT UG (haftungsbeschränkt)</strong><br />
       Petersfeldstraße 16<br />
-      46395 Bocholt<br />
-      Deutschland<br />
-      Vertreten durch den Geschäftsführer: Veselin Kolev<br />
-      Handelsregister: Amtsgericht Coesfeld, HRB 23796<br />
+      46395 Bocholt, Germany<br />
+      Represented by Managing Director: Veselin Kolev<br />
+      Commercial Register: Local Court Coesfeld, HRB 23796<br />
       E-Mail: <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>
     </p>
 
-    <h3>III. Wie erreichen Sie unseren Datenschutzbeauftragten?</h3>
+    <h3>III. How do you reach our Data Protection Officer?</h3>
     <p>
-      Wir sind gesetzlich nicht dazu verpflichtet, einen Datenschutzbeauftragten zu benennen. Für Fragen rund um die Verarbeitung Ihrer Daten können Sie sich jederzeit gerne direkt an uns wenden (Kontaktdaten siehe oben).
+      We are not legally obliged to appoint a Data Protection Officer. If you have questions regarding the processing of your data, you may contact us directly at any time (contact details see above).
     </p>
 
-    <h3>IV. Wer ist von der Datenverarbeitung betroffen?</h3>
+    <h3>IV. Who is affected by data processing?</h3>
     <p>
-      Wenn Sie als Interessent oder sonstiger Besucher unsere Internetseite aufrufen, erfolgt die Verarbeitung Ihrer personenbezogenen Daten im Rahmen der gesetzlichen Vorschriften bzw. dieser Erklärung. Alle Besucher unserer Internetseite werden unter dem Begriff „Nutzer“ zusammengefasst.
+      All visitors to our website are referred to as "Users". Data is processed strictly within the framework of statutory provisions (GDPR, DDG, TDDDG).
     </p>
 
-    <h3>V. Welche Daten verarbeiten wir und zu welchen Zwecken?</h3>
+    <h3>V. What data do we process and for what purposes?</h3>
     <p>
-      Unsere Internetseite ist eine reine Informationsseite ohne Registrierung, Login, Benutzerkonten oder Bezahlfunktionen.
+      Our website is purely informational without user accounts, login, registration, or payment processing.
     </p>
     <p>
-      <strong>Vollständig lokale Auslieferung (Keine Drittlandübermittlung):</strong> Sämtliche Inhalte (einschließlich Schriftarten wie Inter und JetBrains Mono sowie Skripte und Bilder) werden <strong>vollständig lokal</strong> von unserem Webserver ausgeliefert. Beim bloßen Aufruf der Seite werden <strong>keine Daten an externe Dritte (wie Google Fonts oder externe CDNs)</strong> übertragen.
+      <strong>Completely Local Delivery (No Third-Country Transfers):</strong> All content, including typography (Inter, JetBrains Mono), scripts, and assets, is delivered <strong>entirely locally</strong> from our web server. When browsing our website, <strong>no data or IP addresses are transferred to external third parties (such as Google Fonts or external CDNs)</strong>.
     </p>
     <p>
-      <strong>Server-Logfiles:</strong> Beim Besuch unserer Internetseite werden nur die personenbezogenen Daten verarbeitet, die Ihr Browser automatisch an den Server übermittelt. Dies sind technisch erforderliche Daten, um unsere Internetseite anzuzeigen und Stabilität sowie IT-Sicherheit zu gewährleisten:
+      <strong>Server Log Files:</strong> When you access our website, technical connection data is automatically processed to display the website and ensure IT stability and security:
     </p>
     <ul>
-      <li>IP-Adresse des anfragenden Rechners/Endgeräts</li>
-      <li>Datum und Uhrzeit der Anfrage</li>
-      <li>Name und URL der abgerufenen Datei</li>
-      <li>Zugriffsstatus / HTTP-Statuscode</li>
-      <li>Übertragene Datenmenge</li>
-      <li>Website, von der die Anfrage kommt (Referrer-URL)</li>
-      <li>Verwendeter Browser und Betriebssystem</li>
+      <li>IP address of the requesting device</li>
+      <li>Date and time of server access</li>
+      <li>Name and URL of the requested file</li>
+      <li>Access status / HTTP response code</li>
+      <li>Transferred data volume</li>
+      <li>Referrer URL (previously visited page)</li>
+      <li>Browser type, version, and operating system</li>
     </ul>
     <p>
-      Die Verarbeitung dieser Daten in Server-Logfiles ist erforderlich, um unsere Internetseite bereitzustellen und den sicheren Betrieb zu gewährleisten. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse).
+      The processing of server log data is strictly necessary for delivering the website and maintaining security. Legal basis is <strong>Art. 6 (1) (f) GDPR</strong> (legitimate interest).
     </p>
     <p>
-      <strong>Kontaktaufnahme per E-Mail:</strong> Wenn Sie uns per E-Mail kontaktieren (z. B. an <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), verarbeiten wir die von Ihnen freiwillig mitgeteilten Daten (Ihre E-Mail-Adresse, Name und den Inhalt Ihrer Nachricht), um Ihr Anliegen zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO bzw. Art. 6 Abs. 1 lit. b DSGVO (bei vertragsbezogenen Anfragen).
+      <strong>Contact via E-Mail:</strong> If you contact us via email (e.g. at <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), we process the data you voluntarily provide (email address, name, message content) to handle your inquiry. Legal basis: Art. 6 (1) (f) GDPR or Art. 6 (1) (b) GDPR for contract-related requests.
     </p>
 
-    <h3>VI. Setzen wir Cookies ein?</h3>
+    <h3>VI. Do we use Cookies?</h3>
     <p>
-      Unsere Internetseite setzt <strong>weder eigene Cookies noch Cookies von Drittanbietern</strong> ein. Es werden auch keine Daten im Local Storage oder Session Storage zu Tracking- oder Werbezwecken gespeichert. Es findet keinerlei webseitenübergreifendes Tracking oder Profiling statt. Ein Cookie-Banner ist daher nach § 25 Abs. 2 TDDDG nicht erforderlich.
+      Our website sets <strong>neither first-party nor third-party cookies</strong>. No tracking or marketing data is stored in Local Storage or Session Storage. No cross-site profiling or tracking takes place. Therefore, a cookie consent banner is not required under Section 25 (2) TDDDG.
     </p>
 
-    <h3>VII. Speicherdauer</h3>
+    <h3>VII. Storage Duration</h3>
     <p>
-      Server-Logfiles werden ausschließlich kurzfristig zu Zwecken der Systemsicherheit verarbeitet und routinemäßig gelöscht. Daten aus einer E-Mail-Kontaktaufnahme löschen wir, sobald die Bearbeitung Ihrer Anfrage abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+      Server log files are processed short-term for IT security purposes and deleted routinely. Inquiries via email are deleted once the matter is conclusively resolved and no statutory retention requirements apply.
     </p>
 
-    <h3>VIII. Was sind Ihre Rechte?</h3>
-    <p>Hinsichtlich der Verarbeitung Ihrer personenbezogenen Daten haben Sie uns gegenüber das Recht:</p>
+    <h3>VIII. What are your Rights?</h3>
+    <p>Under the GDPR, you have the following rights towards us:</p>
     <ul>
-      <li>Auskunft über Ihre von uns verarbeiteten Daten zu verlangen (Art. 15 DSGVO);</li>
-      <li>unverzüglich die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO);</li>
-      <li>die Löschung Ihrer bei uns gespeicherten Daten zu verlangen (Art. 17 DSGVO);</li>
-      <li>die Einschränkung der Verarbeitung zu verlangen (Art. 18 DSGVO);</li>
-      <li>Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten (Art. 20 DSGVO);</li>
-      <li>sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO);</li>
-      <li><strong>aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Widerspruch einzulegen (Art. 21 DSGVO).</strong></li>
+      <li>Right of Access (Art. 15 GDPR);</li>
+      <li>Right to Rectification of inaccurate data (Art. 16 GDPR);</li>
+      <li>Right to Erasure ("Right to be forgotten") (Art. 17 GDPR);</li>
+      <li>Right to Restriction of processing (Art. 18 GDPR);</li>
+      <li>Right to Data Portability (Art. 20 GDPR);</li>
+      <li>Right to lodge a complaint with a supervisory authority (Art. 77 GDPR);</li>
+      <li><strong>Right to Object on grounds relating to your particular situation (Art. 21 GDPR).</strong></li>
     </ul>
 
-    <h3>IX. Bei wem können Sie sich beschweren?</h3>
+    <h3>IX. Competent Supervisory Authority</h3>
     <p>
-      Zuständige Datenschutz-Aufsichtsbehörde für VAMIT UG (haftungsbeschränkt):<br />
+      Competent supervisory authority for VAMIT UG (haftungsbeschränkt):<br />
       <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong><br />
-      Kavalleriestraße 2–4, 40213 Düsseldorf<br />
-      Internet: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>
+      Kavalleriestraße 2–4, 40213 Düsseldorf, Germany<br />
+      Website: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>
     </p>
 
-    <h3>X. Datensicherheit</h3>
+    <h3>X. Data Security</h3>
     <p>
-      Unsere Internetseite wird ausschließlich verschlüsselt mittels SSL-/TLS-Zertifikat (HTTPS) übertragen.
+      Our website is transmitted strictly encrypted using modern SSL/TLS (HTTPS).
     </p>
     <p style={{ marginTop: 24, fontSize: 13, color: 'var(--text-muted)' }}>
-      Stand: November 2026 · <a href="privacy.html" target="_blank" rel="noopener noreferrer">In separatem Tab öffnen ↗</a>
+      Status: November 2026 · <a href="privacy.html" target="_blank" rel="noopener noreferrer">Open standalone page ↗</a>
     </p>
   </>);
 }
 
 function App() {
-  const [lang, setLangState] = React.useState(() => {
-    try {
-      return localStorage.getItem('orefy_lang') || (navigator.language.startsWith('de') ? 'de' : 'en');
-    } catch (e) {
-      return 'de';
-    }
-  });
-
-  const setLang = (l) => {
-    setLangState(l);
-    try { localStorage.setItem('orefy_lang', l); } catch (e) {}
-  };
+  const lang = 'en';
 
   const [modal, setModal] = React.useState(null);
   const t = T[lang];
@@ -578,11 +351,6 @@ function App() {
       <a href="#top"><img src="assets/orefy-logo-dark.svg" alt="orefy" /></a>
       <div className="nav-links"><a href="#how">{t.nav.how}</a><a href="#contact">{t.nav.early}</a></div>
       <div className="nav-r">
-        <div className="lang-switch">
-          <button className={lang === 'de' ? 'on' : ''} onClick={() => setLang('de')} aria-label="Deutsch">DE</button>
-          <span className="lang-sep">|</span>
-          <button className={lang === 'en' ? 'on' : ''} onClick={() => setLang('en')} aria-label="English">EN</button>
-        </div>
         <span className="nav-badge" data-theme="dark"><Badge tone="ore" dot>{t.nav.badge}</Badge></span>
         <Button size="sm" onClick={() => window.scrollTo({ top: document.getElementById('contact').offsetTop - 64, behavior: 'smooth' })}>{t.nav.contact}</Button>
       </div>
@@ -638,13 +406,13 @@ function App() {
     </div></footer>
 
     {modal === 'imprint' && (
-      <Modal title={lang === 'de' ? 'Impressum' : 'Imprint'} onClose={() => setModal(null)}>
-        <ImprintContent lang={lang} />
+      <Modal title={'Imprint'} onClose={() => setModal(null)}>
+        <ImprintContent />
       </Modal>
     )}
     {modal === 'privacy' && (
-      <Modal title={lang === 'de' ? 'Datenschutzerklärung' : 'Privacy Policy'} onClose={() => setModal(null)}>
-        <PrivacyContent lang={lang} />
+      <Modal title={'Privacy Policy'} onClose={() => setModal(null)}>
+        <PrivacyContent />
       </Modal>
     )}
   </>);

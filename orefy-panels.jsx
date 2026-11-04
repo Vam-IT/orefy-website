@@ -10,31 +10,26 @@ const I = {
 };
 
 const SHOTS_DATA = {
-  de: [
-    { k: 'VPCs', src: 'assets/aws-vpcs.png', blur: [[31.4, 73.6, 8.8, 6.4]] },
-    { k: 'Subnetze', src: 'assets/aws-subnets.png', blur: [[37.4, 53.4, 11.8, 21.8], [62, 53.4, 10.3, 21.8]] },
-  ],
   en: [
     { k: 'VPCs', src: 'assets/aws-vpcs.png', blur: [[31.4, 73.6, 8.8, 6.4]] },
     { k: 'Subnets', src: 'assets/aws-subnets.png', blur: [[37.4, 53.4, 11.8, 21.8], [62, 53.4, 10.3, 21.8]] },
   ],
 };
 
-function ConsoleShots({ lang = 'de' }) {
+function ConsoleShots({ lang = 'en' }) {
   const [s, setS] = React.useState(0);
   const shots = SHOTS_DATA[lang] || SHOTS_DATA.en;
   React.useEffect(() => { const t = setInterval(() => setS(x => (x + 1) % shots.length), 3000); return () => clearInterval(t); }, [shots.length]);
   return (<div className="shots">
     <div className="shots-h">
-      <span>{lang === 'de' ? 'Aktuell · AWS Konsole' : 'Today · AWS console'}</span>
+      <span>Today · AWS console</span>
       <div className="shots-tabs">{shots.map((x, n) => <button key={x.k} className={n === s ? 'on' : ''} onClick={() => setS(n)}>{x.k}</button>)}</div>
     </div>
     <div className="shot-stage">{shots.map((x, n) => <div key={x.k} className={'shot' + (n === s ? ' on' : '')}><img src={x.src} alt={'AWS console · ' + x.k}></img>{x.blur.map((b, j) => <i key={j} className="mask" style={{ left: b[0] + '%', top: b[1] + '%', width: b[2] + '%', height: b[3] + '%' }}></i>)}</div>)}</div>
   </div>);
 }
 
-function DiscoverPanel({ lang = 'de' }) {
-  const isDe = lang === 'de';
+function DiscoverPanel({ lang = 'en' }) {
   const rows = [
     ['vpc-07c1e9a4f2d83b51', 'VPC', '172.31.0.0/16', 'ClickOps'],
     ['subnet-0b7a2e19c4d58f03', 'Subnet', '172.31.16.0/20', 'ClickOps'],
@@ -42,16 +37,15 @@ function DiscoverPanel({ lang = 'de' }) {
     ['subnet-0c95d1b7e3a40f68', 'Subnet', '172.31.32.0/20', 'ClickOps'],
   ];
   return (<>
-    <ConsoleShots lang={lang} />
     <div className="stats">
-      <div><b>2,418</b><span>{isDe ? 'Ressourcen' : 'Resources'}</span></div>
-      <div><b>3</b><span>{isDe ? 'Accounts' : 'Accounts'}</span></div>
-      <div><b>6</b><span>{isDe ? 'Regionen' : 'Regions'}</span></div>
-      <div><b>71%</b><span>{isDe ? 'Nicht verwaltet' : 'Unmanaged'}</span></div>
+      <div><b>2,418</b><span>Resources</span></div>
+      <div><b>3</b><span>Accounts</span></div>
+      <div><b>6</b><span>Regions</span></div>
+      <div><b>71%</b><span>Unmanaged</span></div>
     </div>
     <div className="table-wrap">
       <table className="t">
-        <thead><tr><th>{isDe ? 'Ressource' : 'Resource'}</th><th>{isDe ? 'Typ' : 'Type'}</th><th>CIDR</th><th>{isDe ? 'Verwaltet über' : 'Managed by'}</th></tr></thead>
+        <thead><tr><th>Resource</th><th>Type</th><th>CIDR</th><th>Managed by</th></tr></thead>
         <tbody>{rows.map(r => <tr key={r[0]}><td className="mono">{r[0]}</td><td>{r[1]}</td><td className="mono" style={{ color: 'var(--text-muted)' }}>{r[2]}</td>
           <td><PBadge tone={r[3] === 'ClickOps' ? 'warning' : r[3].includes('stale') ? 'danger' : 'neutral'} dot>{r[3]}</PBadge></td></tr>)}</tbody>
       </table>
@@ -82,20 +76,19 @@ function CodifyPanel() {
   </div>);
 }
 
-function VerifyPanel({ lang = 'de' }) {
-  const isDe = lang === 'de';
+function VerifyPanel({ lang = 'en' }) {
   const rows = [['module.network', 412], ['module.database', 38], ['module.compute', 1206], ['module.storage', 94]];
   return (<div className="verify">
     <div className="ok"><Ico d={I.checkCircle} size={22} />
       <div>
-        <b>{isDe ? 'Keine Änderungen. Code stimmt exakt mit der Live-Umgebung überein.' : 'No changes. Code matches your live environment.'}</b>
-        <span>{isDe ? 'Plan lief gegen 2.418 importierte Ressourcen in 3 Accounts: 0 hinzuzufügen, 0 zu ändern, 0 zu löschen.' : 'Plan ran against 2,418 imported resources in 3 accounts: 0 to add, 0 to change, 0 to destroy.'}</span>
+        <b>No changes. Code matches your live environment.</b>
+        <span>Plan ran against 2,418 imported resources in 3 accounts: 0 to add, 0 to change, 0 to destroy.</span>
       </div>
     </div>
     <div>
       <div className="diffrow" style={{ fontSize: 11, fontWeight: 700, letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--text-subtle)', borderBottom: '1px solid var(--border-default)' }}>
-        <span>{isDe ? 'Modul' : 'Module'}</span>
-        <span>{isDe ? 'Ressourcen' : 'Resources'}</span>
+        <span>Module</span>
+        <span>Resources</span>
         <span>Drift</span>
         <span>Status</span>
       </div>
@@ -103,20 +96,14 @@ function VerifyPanel({ lang = 'de' }) {
         <span className="mono">{r[0]}</span>
         <span>{r[1].toLocaleString('en-US')}</span>
         <span className="mono">0</span>
-        <span className="match"><Ico d={I.check} size={14} />{isDe ? 'Match' : 'Match'}</span>
+        <span className="match"><Ico d={I.check} size={14} />Match</span>
       </div>)}
     </div>
   </div>);
 }
 
-function ScanPanel({ lang = 'de' }) {
-  const isDe = lang === 'de';
-  const f = isDe ? [
-    ['danger', 'Hoch', 'Storage Bucket erlaubt öffentlichen Lesezugriff', 's3-media-uploads', 'CIS 2.1.5'],
-    ['danger', 'Hoch', 'Datenbank im Ruhezustand nicht verschlüsselt', 'legacy-reports-db', 'BSI C5 KRY-03'],
-    ['warning', 'Mittel', 'Security Group offen für 0.0.0.0/0 auf Port 22', 'sg-bastion-old', 'ISO 27001 A.8.20'],
-    ['info', 'Niedrig', 'Fehlendes Kostenstellen-Tag', '184 Ressourcen', 'Interne Richtlinie'],
-  ] : [
+function ScanPanel({ lang = 'en' }) {
+  const f = [
     ['danger', 'High', 'Storage bucket allows public read', 's3-media-uploads', 'CIS 2.1.5'],
     ['danger', 'High', 'Database not encrypted at rest', 'legacy-reports-db', 'BSI C5 KRY-03'],
     ['warning', 'Medium', 'Security group open to 0.0.0.0/0 on 22', 'sg-bastion-old', 'ISO 27001 A.8.20'],
@@ -124,32 +111,31 @@ function ScanPanel({ lang = 'de' }) {
   ];
 
   return (<>
-    <div className="fw">{['CIS Benchmarks', 'ISO 27001', 'BSI C5', 'NIS2', isDe ? 'Eigene Richtlinien' : 'Custom policies'].map(x => <PTag key={x}>{x}</PTag>)}</div>
+    <div className="fw">{['CIS Benchmarks', 'ISO 27001', 'BSI C5', 'NIS2', 'Custom policies'].map(x => <PTag key={x}>{x}</PTag>)}</div>
     {f.map(r => <div className="finding" key={r[2]}><PBadge tone={r[0]}>{r[1]}</PBadge><div><b>{r[2]}</b><small className="mono">{r[3]}</small></div><span className="ctl">{r[4]}</span></div>)}
     <p style={{ marginTop: 16, fontSize: 13, color: 'var(--text-muted)' }}>
-      {isDe ? 'Jeder Befund wird mit einem Fix geliefert – direkt als Code-Änderung, nicht als Klick in der Konsole.' : 'Every finding ships with a fix, as a change to your code, not a console click.'}
+      Every finding ships with a fix, as a change to your code, not a console click.
     </p>
   </>);
 }
 
-function PreparePanel({ lang = 'de' }) {
-  const isDe = lang === 'de';
+function PreparePanel({ lang = 'en' }) {
   const r = [
-    [isDe ? 'Netzwerk' : 'Network', 'module.network', 100],
+    ['Network', 'module.network', 100],
     ['Compute', 'module.compute', 92],
-    [isDe ? 'Datenbank' : 'Database', 'module.database', 85],
-    [isDe ? 'Objektspeicher' : 'Object storage', 'module.storage', 100],
-    [isDe ? 'Message Queue' : 'Managed queue', 'module.events', 40]
+    ['Database', 'module.database', 85],
+    ['Object storage', 'module.storage', 100],
+    ['Managed queue', 'module.events', 40]
   ];
   return (<>
     <div className="stats" style={{ gridTemplateColumns: 'repeat(3,minmax(0,1fr))' }}>
-      <div><b>83%</b><span>{isDe ? 'Heute portierbar' : 'Portable today'}</span></div>
-      <div><b>11</b><span>{isDe ? 'Lock-ins erkannt' : 'Provider lock-ins found'}</span></div>
-      <div><b>EU</b><span>{isDe ? 'Souveränes Ziel' : 'Sovereign target'}</span></div>
+      <div><b>83%</b><span>Portable today</span></div>
+      <div><b>11</b><span>Provider lock-ins found</span></div>
+      <div><b>EU</b><span>Sovereign target</span></div>
     </div>
     <div className="table-wrap">
       <table className="t">
-        <thead><tr><th>{isDe ? 'Service' : 'Service'}</th><th>{isDe ? 'Modul' : 'Module'}</th><th>{isDe ? 'Bereitschaft' : 'Readiness'}</th></tr></thead>
+        <thead><tr><th>Service</th><th>Module</th><th>Readiness</th></tr></thead>
         <tbody>{r.map(x => <tr key={x[0]}><td>{x[0]}</td><td className="mono">{x[1]}</td>
           <td><div className="meter"><div className="bar"><i style={{ width: x[2] + '%', background: x[2] === 100 ? 'var(--success)' : x[2] < 50 ? 'var(--danger)' : 'var(--accent)' }}></i></div><span className="mono" style={{ fontSize: 12 }}>{x[2]}%</span></div></td></tr>)}</tbody>
       </table>
