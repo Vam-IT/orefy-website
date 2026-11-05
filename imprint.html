@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Imprint · Orefy</title>
+<title id="page-title">Imprint · Orefy</title>
 <link rel="icon" href="assets/orefy-favicon.svg">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/colors.css">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/typography.css">
@@ -35,6 +35,9 @@ a{color:var(--ore-400);text-decoration:none}
 a:hover{color:var(--ore-300);text-decoration:underline}
 .card{background:var(--slate-900);border:1px solid var(--slate-800);border-radius:var(--radius-xl);padding:32px;box-shadow:0 12px 32px rgba(0,0,0,.35)}
 footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid #1D2026;text-align:center}
+[data-lang-block]{display:none}
+html[lang="de"] [data-lang-block="de"]{display:block}
+html[lang="en"] [data-lang-block="en"]{display:block}
 @media (max-width:600px){
   .wrap{padding:0 16px}
   main{padding:36px 0 60px}
@@ -48,12 +51,18 @@ footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid
 <nav class="nav"><div class="wrap">
   <a href="/"><img src="assets/orefy-logo-dark.svg" alt="orefy"></a>
   <div class="nav-actions">
+    <div class="lang-switch">
+      <button id="btn-en" class="on" onclick="setLang('en')" aria-label="English">EN</button>
+      <span class="lang-sep">|</span>
+      <button id="btn-de" onclick="setLang('de')" aria-label="Deutsch">DE</button>
+    </div>
     <a href="/" class="back" id="back-link">← Back to home</a>
   </div>
 </div></nav>
 
 <main><div class="wrap">
-  <div>
+  <!-- English -->
+  <div data-lang-block="en">
     <h1>Imprint</h1>
     <div class="card">
       <h3>Information pursuant to Section 5 DDG</h3>
@@ -91,11 +100,66 @@ footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid
       </p>
     </div>
   </div>
+
+  <!-- Deutsch -->
+  <div data-lang-block="de">
+    <h1>Impressum</h1>
+    <div class="card">
+      <h3>Angaben gemäß § 5 DDG</h3>
+      <p>
+        <strong>VAMIT UG (haftungsbeschränkt)</strong><br>
+        Petersfeldstraße 16<br>
+        46395 Bocholt<br>
+        Deutschland
+      </p>
+
+      <h3>Vertreten durch</h3>
+      <p>
+        <strong>Geschäftsführer:</strong> Veselin Kolev
+      </p>
+
+      <h3>Registereintrag</h3>
+      <p>
+        <strong>Registergericht:</strong> Amtsgericht Coesfeld<br>
+        <strong>Registernummer:</strong> HRB 23796
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>
+        <strong>Telefon:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br>
+        <strong>E-Mail:</strong> <a href="mailto:info@orefy.cloud">info@orefy.cloud</a><br>
+        <strong>Web:</strong> <a href="https://vam-it.com/" target="_blank" rel="noopener noreferrer">vam-it.com</a>
+      </p>
+
+      <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+      <p>
+        Veselin Kolev<br>
+        Petersfeldstraße 16<br>
+        46395 Bocholt<br>
+        Deutschland
+      </p>
+    </div>
+  </div>
 </div></main>
 
 <footer><div class="wrap">
   <span>© 2026 Orefy · VAMIT UG (haftungsbeschränkt)</span>
 </div></footer>
 
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  try { localStorage.setItem('orefy_legal_lang', l); } catch(e){}
+  document.getElementById('btn-de').className = (l === 'de' ? 'on' : '');
+  document.getElementById('btn-en').className = (l === 'en' ? 'on' : '');
+  document.getElementById('page-title').textContent = (l === 'de' ? 'Impressum · Orefy' : 'Imprint · Orefy');
+  document.getElementById('back-link').textContent = (l === 'de' ? '← Zurück zur Startseite' : '← Back to home');
+}
+(function() {
+  var saved = 'en';
+  try { saved = localStorage.getItem('orefy_legal_lang') || (navigator.language.startsWith('de') ? 'de' : 'en'); } catch(e){}
+  setLang(saved === 'de' ? 'de' : 'en');
+})();
+</script>
 </body>
 </html>

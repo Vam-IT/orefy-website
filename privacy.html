@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Privacy Policy · Orefy</title>
+<title id="page-title">Privacy Policy · Orefy</title>
 <link rel="icon" href="assets/orefy-favicon.svg">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/colors.css">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/typography.css">
@@ -37,6 +37,9 @@ a{color:var(--ore-400);text-decoration:none}
 a:hover{color:var(--ore-300);text-decoration:underline}
 .card{background:var(--slate-900);border:1px solid var(--slate-800);border-radius:var(--radius-xl);padding:32px;box-shadow:0 12px 32px rgba(0,0,0,.35)}
 footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid #1D2026;text-align:center}
+[data-lang-block]{display:none}
+html[lang="de"] [data-lang-block="de"]{display:block}
+html[lang="en"] [data-lang-block="en"]{display:block}
 @media (max-width:600px){
   .wrap{padding:0 16px}
   main{padding:36px 0 60px}
@@ -50,12 +53,18 @@ footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid
 <nav class="nav"><div class="wrap">
   <a href="/"><img src="assets/orefy-logo-dark.svg" alt="orefy"></a>
   <div class="nav-actions">
+    <div class="lang-switch">
+      <button id="btn-en" class="on" onclick="setLang('en')" aria-label="English">EN</button>
+      <span class="lang-sep">|</span>
+      <button id="btn-de" onclick="setLang('de')" aria-label="Deutsch">DE</button>
+    </div>
     <a href="/" class="back" id="back-link">← Back to home</a>
   </div>
 </div></nav>
 
 <main><div class="wrap">
-  <div>
+  <!-- English -->
+  <div data-lang-block="en">
     <h1>Privacy Policy</h1>
     <div class="card">
       <p>
@@ -94,22 +103,13 @@ footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid
         Our website is purely informational without user accounts, login, registration, or payment processing.
       </p>
       <p>
-        <strong>Completely Local Delivery (No Third-Country Transfers):</strong> All content, including typography (Inter, JetBrains Mono), scripts, and assets, is delivered <strong>entirely locally</strong> from our web server. When browsing our website, <strong>no data or IP addresses are transferred to external third parties (such as Google Fonts or external CDNs)</strong>.
+        <strong>Hosting via GitHub Pages:</strong> Our website is hosted using <strong>GitHub Pages</strong>, a web hosting service provided by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (parent company: Microsoft Corporation). When you visit our website, your browser automatically transmits technical access data (such as IP address, browser type, operating system, date and time of server access, and the requested URL) to GitHub's servers. This is technically necessary to provide you with a stable and secure website.
       </p>
       <p>
-        <strong>Server Log Files:</strong> When you access our website, technical connection data is automatically processed to display the website and ensure IT stability and security:
+        The legal basis for this processing is <strong>Art. 6 (1) (f) GDPR</strong> (our legitimate interest in the reliable, performant, and secure operation of our website). GitHub is certified under the <strong>EU-U.S. Data Privacy Framework (DPF)</strong>, ensuring an adequate level of data protection pursuant to Art. 45 GDPR. Furthermore, Standard Contractual Clauses (SCC) apply through GitHub's Data Protection Addendum (DPA). For more information: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
       </p>
-      <ul>
-        <li>IP address of the requesting device</li>
-        <li>Date and time of server access</li>
-        <li>Name and URL of the requested file</li>
-        <li>Access status / HTTP response code</li>
-        <li>Transferred data volume</li>
-        <li>Referrer URL (previously visited website)</li>
-        <li>Browser type, version, and operating system</li>
-      </ul>
       <p>
-        The processing of server log data is strictly necessary for delivering the website and maintaining security. Legal basis is <strong>Art. 6 (1) (f) GDPR</strong> (legitimate interest in IT security and functionality).
+        <strong>Local Delivery of Assets (No Third-Party CDNs or Fonts):</strong> All typography (Inter, JetBrains Mono), scripts, and assets are served directly through our repository on GitHub Pages. There is <strong>no dynamic loading from third parties</strong> such as Google Fonts or external CDNs.
       </p>
       <p>
         <strong>Contact via E-Mail:</strong> If you contact us via email (e.g. at <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), we process the data you voluntarily provide (email address, name, message content) to handle your inquiry. Legal basis: Art. 6 (1) (f) GDPR or Art. 6 (1) (b) GDPR for contract-related requests.
@@ -154,11 +154,119 @@ footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid
       </p>
     </div>
   </div>
+
+  <!-- Deutsch -->
+  <div data-lang-block="de">
+    <h1>Datenschutzerklärung</h1>
+    <div class="card">
+      <p>
+        Hier informieren wir Sie über die Verarbeitung personenbezogener Daten bei Nutzung unserer Internetseite. Diese Datenschutzerklärung gilt für unsere Internetseite. Wir betreiben keine Social-Media-Profile und keine weiteren Online-Präsenzen, auf die diese Erklärung ebenfalls Anwendung finden müsste.
+      </p>
+
+      <h3>I. Grundlegendes</h3>
+      <p>
+        Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind, also u. a. Name, Anschrift, E-Mail-Adresse, IP-Adresse oder auch das Nutzerverhalten.
+        Hinsichtlich der verwendeten Begriffe, wie z. B. „Verarbeitung“, „Verantwortlicher“ oder „Betroffener“, wird auf die Definitionen in Art. 4 DSGVO verwiesen.
+      </p>
+
+      <h3>II. Wer ist die verantwortliche Stelle?</h3>
+      <p>
+        Wir sind für die Verarbeitung Ihrer Daten verantwortlich:<br>
+        <strong>VAMIT UG (haftungsbeschränkt)</strong><br>
+        Petersfeldstraße 16<br>
+        46395 Bocholt<br>
+        Deutschland<br>
+        Vertreten durch den Geschäftsführer: Veselin Kolev<br>
+        Handelsregister: Amtsgericht Coesfeld, HRB 23796<br>
+        E-Mail: <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>
+      </p>
+
+      <h3>III. Wie erreichen Sie unseren Datenschutzbeauftragten?</h3>
+      <p>
+        Wir sind gesetzlich nicht dazu verpflichtet, einen Datenschutzbeauftragten zu benennen. Für Fragen rund um die Verarbeitung Ihrer Daten können Sie sich jederzeit gerne direkt an uns wenden (Kontaktdaten siehe oben).
+      </p>
+
+      <h3>IV. Wer ist von der Datenverarbeitung betroffen?</h3>
+      <p>
+        Wenn Sie als Interessent oder sonstiger Besucher unsere Internetseite aufrufen, erfolgt die Verarbeitung Ihrer personenbezogenen Daten im Rahmen der gesetzlichen Vorschriften bzw. dieser Erklärung. Alle Besucher unserer Internetseite werden unter dem Begriff „Nutzer“ zusammengefasst.
+      </p>
+
+      <h3>V. Welche Daten verarbeiten wir und zu welchen Zwecken?</h3>
+      <p>
+        Unsere Internetseite ist eine reine Informationsseite ohne Registrierung, Login, Benutzerkonten oder Bezahlfunktionen.
+      </p>
+      <p>
+        <strong>Hosting über GitHub Pages:</strong> Unsere Website wird über <strong>GitHub Pages</strong> bereitgestellt, einen Webhosting-Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (Mutterkonzern: Microsoft Corporation). Beim Aufruf dieser Website übermittelt Ihr Browser automatisch technische Zugriffsdaten (wie IP-Adresse, Browsertyp, Betriebssystem, Datum und Uhrzeit der Serveranfrage sowie die aufgerufene URL) an die Server von GitHub. Dies ist technisch erforderlich, um Ihnen unsere Website stabil und sicher bereitzustellen.
+      </p>
+      <p>
+        Rechtsgrundlage für diese Verarbeitung ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (unser berechtigtes Interesse an einer verlässlichen, performanten und sicheren Bereitstellung unseres Online-Angebots). GitHub ist unter dem <strong>EU-U.S. Data Privacy Framework (DPF)</strong> zertifiziert, wodurch ein angemessenes Datenschutzniveau gemäß Art. 45 DSGVO gewährleistet ist. Zudem finden die Standardvertragsklauseln (SCC) im Rahmen des GitHub Data Protection Addendum (DPA) Anwendung. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
+      </p>
+      <p>
+        <strong>Lokale Bereitstellung aller Assets (Keine externen Drittanbieter-Schriften/CDNs):</strong> Sämtliche eingebundenen Schriftarten (Inter, JetBrains Mono), Skripte und Medien werden direkt über unser Repository und GitHub Pages ausgeliefert. Es erfolgt <strong>kein Nachladen von externen Drittanbietern</strong> wie Google Fonts oder externen Content Delivery Networks.
+      </p>
+      <p>
+        <strong>Kontaktaufnahme per E-Mail:</strong> Wenn Sie uns per E-Mail kontaktieren (z. B. an <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), verarbeiten wir die von Ihnen freiwillig mitgeteilten Daten (Ihre E-Mail-Adresse, Name und den Inhalt Ihrer Nachricht), um Ihr Anliegen zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO bzw. Art. 6 Abs. 1 lit. b DSGVO (sofern die Anfrage auf den Abschluss oder die Durchführung eines Vertrages gerichtet ist).
+      </p>
+
+      <h3>VI. Setzen wir Cookies ein?</h3>
+      <p>
+        Unsere Internetseite setzt <strong>weder eigene Cookies noch Cookies von Drittanbietern</strong> ein. Es werden auch keine Daten im Local Storage oder Session Storage zu Werbe- oder Trackingzwecken gespeichert. Es findet keinerlei webseitenübergreifendes Tracking, Profiling oder Werbe-Remarketing statt. Ein Cookie-Banner ist daher nach § 25 Abs. 2 TDDDG nicht erforderlich.
+      </p>
+
+      <h3>VII. Speicherdauer</h3>
+      <p>
+        Server-Logfiles werden ausschließlich kurzfristig zu Zwecken der IT-Sicherheit gespeichert und anschließend routinemäßig gelöscht. Daten aus einer E-Mail-Kontaktaufnahme löschen wir, sobald die Bearbeitung Ihrer Anfrage abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+      </p>
+
+      <h3>VIII. Ihre Rechte als betroffene Person</h3>
+      <p>Hinsichtlich der Verarbeitung Ihrer personenbezogenen Daten haben Sie uns gegenüber das Recht:</p>
+      <ul>
+        <li>Auskunft über Ihre von uns verarbeiteten Daten zu verlangen (Art. 15 DSGVO);</li>
+        <li>unverzüglich die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO);</li>
+        <li>die Löschung Ihrer bei uns gespeicherten Daten zu verlangen (Art. 17 DSGVO);</li>
+        <li>die Einschränkung der Verarbeitung zu verlangen (Art. 18 DSGVO);</li>
+        <li>Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten (Art. 20 DSGVO);</li>
+        <li>sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO);</li>
+        <li><strong>aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Widerspruch einzulegen (Art. 21 DSGVO).</strong></li>
+      </ul>
+
+      <h3>IX. Bei wem können Sie sich beschweren?</h3>
+      <p>
+        Zuständige Datenschutz-Aufsichtsbehörde für VAMIT UG (haftungsbeschränkt):<br>
+        <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong><br>
+        Kavalleriestraße 2–4, 40213 Düsseldorf<br>
+        Internet: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>
+      </p>
+
+      <h3>X. Datensicherheit</h3>
+      <p>
+        Unsere Internetseite wird ausschließlich verschlüsselt mittels SSL-/TLS-Zertifikat (HTTPS) übertragen.
+      </p>
+      <p style="margin-top:24px;font-size:13px;color:var(--slate-500)">
+        Stand: November 2026
+      </p>
+    </div>
+  </div>
 </div></main>
 
 <footer><div class="wrap">
   <span>© 2026 Orefy · VAMIT UG (haftungsbeschränkt)</span>
 </div></footer>
 
+<script>
+function setLang(l) {
+  document.documentElement.lang = l;
+  try { localStorage.setItem('orefy_legal_lang', l); } catch(e){}
+  document.getElementById('btn-de').className = (l === 'de' ? 'on' : '');
+  document.getElementById('btn-en').className = (l === 'en' ? 'on' : '');
+  document.getElementById('page-title').textContent = (l === 'de' ? 'Datenschutzerklärung · Orefy' : 'Privacy Policy · Orefy');
+  document.getElementById('back-link').textContent = (l === 'de' ? '← Zurück zur Startseite' : '← Back to home');
+}
+(function() {
+  var saved = 'en';
+  try { saved = localStorage.getItem('orefy_legal_lang') || (navigator.language.startsWith('de') ? 'de' : 'en'); } catch(e){}
+  setLang(saved === 'de' ? 'de' : 'en');
+})();
+</script>
 </body>
 </html>

@@ -263,7 +263,7 @@ function Contact({ lang = 'en' }) {
   );
 }
 
-function Modal({ title, children, onClose }) {
+function Modal({ title, lang, onLangChange, children, onClose }) {
   React.useEffect(() => {
     const handleKey = (e) => { if (e.key === 'Escape') onClose(); };
     window.addEventListener('keydown', handleKey);
@@ -279,8 +279,17 @@ function Modal({ title, children, onClose }) {
     <div className="modal-backdrop" onClick={(e) => { if (e.target === e.currentTarget) onClose(); }}>
       <div className="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
         <div className="modal-header">
-          <h2 id="modal-title">{title}</h2>
-          <button className="modal-close" onClick={onClose} aria-label="Schließen">✕</button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
+            <h2 id="modal-title">{title}</h2>
+            {onLangChange && (
+              <div className="lang-switch">
+                <button className={lang === 'de' ? 'on' : ''} onClick={() => onLangChange('de')} aria-label="Deutsch">DE</button>
+                <span className="lang-sep" style={{ color: '#2F3642', fontSize: 11, userSelect: 'none' }}>|</span>
+                <button className={lang === 'en' ? 'on' : ''} onClick={() => onLangChange('en')} aria-label="English">EN</button>
+              </div>
+            )}
+          </div>
+          <button className="modal-close" onClick={onClose} aria-label="Close">✕</button>
         </div>
         <div className="modal-body">
           {children}
@@ -290,7 +299,48 @@ function Modal({ title, children, onClose }) {
   );
 }
 
-function ImprintContent() {
+function ImprintContent({ lang = 'en' }) {
+  if (lang === 'de') {
+    return (<>
+      <h3>Angaben gemäß § 5 DDG</h3>
+      <p>
+        <strong>VAMIT UG (haftungsbeschränkt)</strong><br />
+        Petersfeldstraße 16<br />
+        46395 Bocholt<br />
+        Deutschland
+      </p>
+
+      <h3>Vertreten durch</h3>
+      <p>
+        <strong>Geschäftsführer:</strong> Veselin Kolev
+      </p>
+
+      <h3>Registereintrag</h3>
+      <p>
+        <strong>Registergericht:</strong> Amtsgericht Coesfeld<br />
+        <strong>Registernummer:</strong> HRB 23796
+      </p>
+
+      <h3>Kontakt</h3>
+      <p>
+        <strong>Telefon:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br />
+        <strong>E-Mail:</strong> <a href="mailto:info@orefy.cloud">info@orefy.cloud</a><br />
+        <strong>Web:</strong> <a href="https://vam-it.com/" target="_blank" rel="noopener noreferrer">vam-it.com</a>
+      </p>
+
+      <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+      <p>
+        Veselin Kolev<br />
+        Petersfeldstraße 16<br />
+        46395 Bocholt<br />
+        Deutschland
+      </p>
+      <p style={{ marginTop: 24, fontSize: 13, color: 'var(--text-muted)' }}>
+        <a href="imprint.html" target="_blank" rel="noopener noreferrer">In separatem Tab öffnen ↗</a>
+      </p>
+    </>);
+  }
+
   return (<>
     <h3>Information pursuant to Section 5 DDG</h3>
     <p>
@@ -331,7 +381,98 @@ function ImprintContent() {
   </>);
 }
 
-function PrivacyContent() {
+function PrivacyContent({ lang = 'en' }) {
+  if (lang === 'de') {
+    return (<>
+      <p>
+        Hier informieren wir Sie über die Verarbeitung personenbezogener Daten bei Nutzung unserer Internetseite. Diese Datenschutzerklärung gilt für unsere Internetseite. Wir betreiben keine Social-Media-Profile und keine weiteren Online-Präsenzen, auf die diese Erklärung ebenfalls Anwendung finden müsste.
+      </p>
+
+      <h3>I. Grundlegendes</h3>
+      <p>
+        Personenbezogene Daten sind alle Daten, die auf Sie persönlich beziehbar sind, also u. a. Name, Anschrift, E-Mail-Adresse, IP-Adresse oder auch das Nutzerverhalten.
+        Hinsichtlich der verwendeten Begriffe wird auf die Definitionen in Art. 4 DSGVO verwiesen.
+      </p>
+
+      <h3>II. Wer ist die verantwortliche Stelle?</h3>
+      <p>
+        Wir sind für die Verarbeitung Ihrer Daten verantwortlich:<br />
+        <strong>VAMIT UG (haftungsbeschränkt)</strong><br />
+        Petersfeldstraße 16<br />
+        46395 Bocholt<br />
+        Deutschland<br />
+        Vertreten durch den Geschäftsführer: Veselin Kolev<br />
+        Handelsregister: Amtsgericht Coesfeld, HRB 23796<br />
+        E-Mail: <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>
+      </p>
+
+      <h3>III. Wie erreichen Sie unseren Datenschutzbeauftragten?</h3>
+      <p>
+        Wir sind gesetzlich nicht dazu verpflichtet, einen Datenschutzbeauftragten zu benennen. Für Fragen rund um die Verarbeitung Ihrer Daten können Sie sich jederzeit gerne direkt an uns wenden (Kontaktdaten siehe oben).
+      </p>
+
+      <h3>IV. Wer ist von der Datenverarbeitung betroffen?</h3>
+      <p>
+        Wenn Sie als Interessent oder sonstiger Besucher unsere Internetseite aufrufen, erfolgt die Verarbeitung Ihrer personenbezogenen Daten im Rahmen der gesetzlichen Vorschriften bzw. dieser Erklärung. Alle Besucher unserer Internetseite werden unter dem Begriff „Nutzer“ zusammengefasst.
+      </p>
+
+      <h3>V. Welche Daten verarbeiten wir und zu welchen Zwecken?</h3>
+      <p>
+        Unsere Internetseite ist eine reine Informationsseite ohne Registrierung, Login, Benutzerkonten oder Bezahlfunktionen.
+      </p>
+      <p>
+        <strong>Hosting über GitHub Pages:</strong> Unsere Website wird über <strong>GitHub Pages</strong> bereitgestellt, einen Webhosting-Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (Mutterkonzern: Microsoft Corporation). Beim Aufruf dieser Website übermittelt Ihr Browser automatisch technische Zugriffsdaten (wie IP-Adresse, Browsertyp, Betriebssystem, Datum und Uhrzeit der Serveranfrage sowie die aufgerufene URL) an die Server von GitHub. Dies ist technisch erforderlich, um Ihnen unsere Website stabil und sicher bereitzustellen.
+      </p>
+      <p>
+        Rechtsgrundlage für diese Verarbeitung ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (unser berechtigtes Interesse an einer verlässlichen, performanten und sicheren Bereitstellung unseres Online-Angebots). GitHub ist unter dem <strong>EU-U.S. Data Privacy Framework (DPF)</strong> zertifiziert, wodurch ein angemessenes Datenschutzniveau gemäß Art. 45 DSGVO gewährleistet ist. Zudem finden die Standardvertragsklauseln (SCC) im Rahmen des GitHub Data Protection Addendum (DPA) Anwendung. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
+      </p>
+      <p>
+        <strong>Lokale Bereitstellung aller Assets (Keine externen Drittanbieter-Schriften/CDNs):</strong> Sämtliche eingebundenen Schriftarten (Inter, JetBrains Mono), Skripte und Medien werden direkt über unser Repository und GitHub Pages ausgeliefert. Es erfolgt <strong>kein Nachladen von externen Drittanbietern</strong> wie Google Fonts oder externen Content Delivery Networks.
+      </p>
+      <p>
+        <strong>Kontaktaufnahme per E-Mail:</strong> Wenn Sie uns per E-Mail kontaktieren (z. B. an <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), verarbeiten wir die von Ihnen freiwillig mitgeteilten Daten (Ihre E-Mail-Adresse, Name und den Inhalt Ihrer Nachricht), um Ihr Anliegen zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO bzw. Art. 6 Abs. 1 lit. b DSGVO (bei vertragsbezogenen Anfragen).
+      </p>
+
+      <h3>VI. Setzen wir Cookies ein?</h3>
+      <p>
+        Unsere Internetseite setzt <strong>weder eigene Cookies noch Cookies von Drittanbietern</strong> ein. Es werden auch keine Daten im Local Storage oder Session Storage zu Tracking- oder Werbezwecken gespeichert. Es findet keinerlei webseitenübergreifendes Tracking oder Profiling statt. Ein Cookie-Banner ist daher nach § 25 Abs. 2 TDDDG nicht erforderlich.
+      </p>
+
+      <h3>VII. Speicherdauer</h3>
+      <p>
+        Server-Logfiles werden ausschließlich kurzfristig zu Zwecken der Systemsicherheit verarbeitet und routinemäßig gelöscht. Daten aus einer E-Mail-Kontaktaufnahme löschen wir, sobald die Bearbeitung Ihrer Anfrage abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+      </p>
+
+      <h3>VIII. Was sind Ihre Rechte?</h3>
+      <p>Hinsichtlich der Verarbeitung Ihrer personenbezogenen Daten haben Sie uns gegenüber das Recht:</p>
+      <ul>
+        <li>Auskunft über Ihre von uns verarbeiteten Daten zu verlangen (Art. 15 DSGVO);</li>
+        <li>unverzüglich die Berichtigung unrichtiger Daten zu verlangen (Art. 16 DSGVO);</li>
+        <li>die Löschung Ihrer bei uns gespeicherten Daten zu verlangen (Art. 17 DSGVO);</li>
+        <li>die Einschränkung der Verarbeitung zu verlangen (Art. 18 DSGVO);</li>
+        <li>Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten (Art. 20 DSGVO);</li>
+        <li>sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO);</li>
+        <li><strong>aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Widerspruch einzulegen (Art. 21 DSGVO).</strong></li>
+      </ul>
+
+      <h3>IX. Bei wem können Sie sich beschweren?</h3>
+      <p>
+        Zuständige Datenschutz-Aufsichtsbehörde für VAMIT UG (haftungsbeschränkt):<br />
+        <strong>Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen (LDI NRW)</strong><br />
+        Kavalleriestraße 2–4, 40213 Düsseldorf<br />
+        Internet: <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener noreferrer">www.ldi.nrw.de</a>
+      </p>
+
+      <h3>X. Datensicherheit</h3>
+      <p>
+        Unsere Internetseite wird ausschließlich verschlüsselt mittels SSL-/TLS-Zertifikat (HTTPS) übertragen.
+      </p>
+      <p style={{ marginTop: 24, fontSize: 13, color: 'var(--text-muted)' }}>
+        Stand: November 2026 · <a href="privacy.html" target="_blank" rel="noopener noreferrer">In separatem Tab öffnen ↗</a>
+      </p>
+    </>);
+  }
+
   return (<>
     <p>
       This Privacy Policy informs you about the processing of personal data when using our website. This privacy policy applies to our website. We do not operate any social media profiles or further online presences to which this policy would need to apply.
@@ -368,22 +509,13 @@ function PrivacyContent() {
       Our website is purely informational without user accounts, login, registration, or payment processing.
     </p>
     <p>
-      <strong>Completely Local Delivery (No Third-Country Transfers):</strong> All content, including typography (Inter, JetBrains Mono), scripts, and assets, is delivered <strong>entirely locally</strong> from our web server. When browsing our website, <strong>no data or IP addresses are transferred to external third parties (such as Google Fonts or external CDNs)</strong>.
+      <strong>Hosting via GitHub Pages:</strong> Our website is hosted using <strong>GitHub Pages</strong>, a web hosting service provided by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (parent company: Microsoft Corporation). When you visit our website, your browser automatically transmits technical access data (such as IP address, browser type, operating system, date and time of server access, and the requested URL) to GitHub's servers. This is technically necessary to provide you with a stable and secure website.
     </p>
     <p>
-      <strong>Server Log Files:</strong> When you access our website, technical connection data is automatically processed to display the website and ensure IT stability and security:
+      The legal basis for this processing is <strong>Art. 6 (1) (f) GDPR</strong> (our legitimate interest in the reliable, performant, and secure operation of our website). GitHub is certified under the <strong>EU-U.S. Data Privacy Framework (DPF)</strong>, ensuring an adequate level of data protection pursuant to Art. 45 GDPR. Furthermore, Standard Contractual Clauses (SCC) apply through GitHub's Data Protection Addendum (DPA). For more information: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
     </p>
-    <ul>
-      <li>IP address of the requesting device</li>
-      <li>Date and time of server access</li>
-      <li>Name and URL of the requested file</li>
-      <li>Access status / HTTP response code</li>
-      <li>Transferred data volume</li>
-      <li>Referrer URL (previously visited page)</li>
-      <li>Browser type, version, and operating system</li>
-    </ul>
     <p>
-      The processing of server log data is strictly necessary for delivering the website and maintaining security. Legal basis is <strong>Art. 6 (1) (f) GDPR</strong> (legitimate interest).
+      <strong>Local Delivery of Assets (No Third-Party CDNs or Fonts):</strong> All typography (Inter, JetBrains Mono), scripts, and assets are served directly through our repository on GitHub Pages. There is <strong>no dynamic loading from third parties</strong> such as Google Fonts or external CDNs.
     </p>
     <p>
       <strong>Contact via E-Mail:</strong> If you contact us via email (e.g. at <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), we process the data you voluntarily provide (email address, name, message content) to handle your inquiry. Legal basis: Art. 6 (1) (f) GDPR or Art. 6 (1) (b) GDPR for contract-related requests.
@@ -431,6 +563,19 @@ function PrivacyContent() {
 
 function App() {
   const lang = 'en';
+
+  const [legalLang, setLegalLangState] = React.useState(() => {
+    try {
+      return localStorage.getItem('orefy_legal_lang') || (navigator.language.startsWith('de') ? 'de' : 'en');
+    } catch (e) {
+      return 'en';
+    }
+  });
+
+  const setLegalLang = (l) => {
+    setLegalLangState(l);
+    try { localStorage.setItem('orefy_legal_lang', l); } catch (e) {}
+  };
 
   const [modal, setModal] = React.useState(null);
   const t = T[lang];
@@ -512,13 +657,13 @@ function App() {
     </div></footer>
 
     {modal === 'imprint' && (
-      <Modal title={'Imprint'} onClose={() => setModal(null)}>
-        <ImprintContent />
+      <Modal title={legalLang === 'de' ? 'Impressum' : 'Imprint'} lang={legalLang} onLangChange={setLegalLang} onClose={() => setModal(null)}>
+        <ImprintContent lang={legalLang} />
       </Modal>
     )}
     {modal === 'privacy' && (
-      <Modal title={'Privacy Policy'} onClose={() => setModal(null)}>
-        <PrivacyContent />
+      <Modal title={legalLang === 'de' ? 'Datenschutzerklärung' : 'Privacy Policy'} lang={legalLang} onLangChange={setLegalLang} onClose={() => setModal(null)}>
+        <PrivacyContent lang={legalLang} />
       </Modal>
     )}
   </>);
