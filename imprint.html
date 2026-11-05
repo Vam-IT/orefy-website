@@ -34,7 +34,11 @@ strong{color:var(--slate-50)}
 a{color:var(--ore-400);text-decoration:none}
 a:hover{color:var(--ore-300);text-decoration:underline}
 .card{background:var(--slate-900);border:1px solid var(--slate-800);border-radius:var(--radius-xl);padding:32px;box-shadow:0 12px 32px rgba(0,0,0,.35)}
-footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid #1D2026;text-align:center}
+footer{padding:36px 0;font-size:13px;color:var(--slate-500);border-top:1px solid #1D2026}
+footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+footer .links{display:flex;gap:20px}
+footer a{color:var(--slate-400);text-decoration:none}
+footer a:hover{color:var(--slate-100);text-decoration:underline}
 [data-lang-block]{display:none}
 html[lang="de"] [data-lang-block="de"]{display:block}
 html[lang="en"] [data-lang-block="en"]{display:block}
@@ -84,6 +88,11 @@ html[lang="en"] [data-lang-block="en"]{display:block}
         <strong>Registration Number:</strong> HRB 23796
       </p>
 
+      <h3>VAT ID</h3>
+      <p>
+        VAT identification number pursuant to Section 27a of the German VAT Act (UStG): DE462795245
+      </p>
+
       <h3>Contact</h3>
       <p>
         <strong>Phone:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br>
@@ -124,6 +133,11 @@ html[lang="en"] [data-lang-block="en"]{display:block}
         <strong>Registernummer:</strong> HRB 23796
       </p>
 
+      <h3>Umsatzsteuer-ID</h3>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE462795245
+      </p>
+
       <h3>Kontakt</h3>
       <p>
         <strong>Telefon:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br>
@@ -144,6 +158,10 @@ html[lang="en"] [data-lang-block="en"]{display:block}
 
 <footer><div class="wrap">
   <span>© 2026 Orefy · VAMIT UG (haftungsbeschränkt)</span>
+  <div class="links">
+    <a href="privacy.html" id="foot-privacy">Privacy Policy</a>
+    <a href="mailto:info@orefy.cloud" id="foot-contact">Contact</a>
+  </div>
 </div></footer>
 
 <script>
@@ -154,6 +172,8 @@ function setLang(l) {
   document.getElementById('btn-en').className = (l === 'en' ? 'on' : '');
   document.getElementById('page-title').textContent = (l === 'de' ? 'Impressum · Orefy' : 'Imprint · Orefy');
   document.getElementById('back-link').textContent = (l === 'de' ? '← Zurück zur Startseite' : '← Back to home');
+  document.getElementById('foot-privacy').textContent = (l === 'de' ? 'Datenschutzerklärung' : 'Privacy Policy');
+  document.getElementById('foot-contact').textContent = (l === 'de' ? 'Kontakt' : 'Contact');
 }
 (function() {
   var saved = 'en';

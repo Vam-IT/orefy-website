@@ -355,6 +355,11 @@ footer .links a:hover{color:var(--slate-50)}
 .modal-body strong{color:var(--slate-100)}
 .modal-body a{color:var(--ore-300);text-decoration:underline}
 .modal-body a:hover{color:var(--ore-200)}
+.notice-box{margin:20px 0 16px;padding:16px 18px;background:rgba(207,138,50,.08);border:1px solid rgba(207,138,50,.28);border-left:3px solid var(--ore-400);border-radius:var(--radius-md)}
+.notice-box strong.notice-title{display:block;font-size:14px;color:var(--ore-200);margin-bottom:8px}
+.notice-box p{margin:0!important;font-size:13.5px;line-height:1.65;color:var(--slate-200)}
+.notice-box a{color:var(--ore-300);text-decoration:underline}
+.notice-box a:hover{color:var(--ore-200)}
 @media (max-width:640px){
   .modal-dialog{max-height:92vh}
   .modal-header{padding:14px 18px}
@@ -363,6 +368,18 @@ footer .links a:hover{color:var(--slate-50)}
 </style>
 </head>
 <body>
+<noscript>
+  <div style="padding: 40px 20px; text-align: center; font-family: sans-serif; background: #0A090D; color: #fff;">
+    <p>Please enable JavaScript to view this application, or visit our legal pages:</p>
+    <p style="margin-top: 16px;">
+      <a href="imprint.html" style="color: #CF8A32; margin-right: 20px;">Imprint / Impressum</a>
+      <a href="privacy.html" style="color: #CF8A32;">Privacy Policy / Datenschutzerklärung</a>
+    </p>
+    <p style="margin-top: 24px; color: #64748B; font-size: 13px;">
+      © 2026 Orefy · VAMIT UG (haftungsbeschränkt)
+    </p>
+  </div>
+</noscript>
 <div id="root"></div>
 <script src="assets/vendor/react.development.js"></script>
 <script src="assets/vendor/react-dom.development.js"></script>

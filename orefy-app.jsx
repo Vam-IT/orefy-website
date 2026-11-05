@@ -71,7 +71,7 @@ const T = {
       btn: "Contact us",
     },
     footer: {
-      copy: "© 2026 Orefy · VAMIT UG",
+      copy: "© 2026 Orefy · VAMIT UG (haftungsbeschränkt)",
       imprint: "Imprint",
       privacy: "Privacy Policy",
       contact: "Contact",
@@ -321,6 +321,11 @@ function ImprintContent({ lang = 'en' }) {
         <strong>Registernummer:</strong> HRB 23796
       </p>
 
+      <h3>Umsatzsteuer-ID</h3>
+      <p>
+        Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE462795245
+      </p>
+
       <h3>Kontakt</h3>
       <p>
         <strong>Telefon:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br />
@@ -359,6 +364,11 @@ function ImprintContent({ lang = 'en' }) {
     <p>
       <strong>Registration Court:</strong> Local Court (Amtsgericht) Coesfeld<br />
       <strong>Registration Number:</strong> HRB 23796
+    </p>
+
+    <h3>VAT ID</h3>
+    <p>
+      VAT identification number pursuant to Section 27a of the German VAT Act (UStG): DE462795245
     </p>
 
     <h3>Contact</h3>
@@ -421,16 +431,28 @@ function PrivacyContent({ lang = 'en' }) {
         Unsere Internetseite ist eine reine Informationsseite ohne Registrierung, Login, Benutzerkonten oder Bezahlfunktionen.
       </p>
       <p>
-        <strong>Hosting über GitHub Pages:</strong> Unsere Website wird über <strong>GitHub Pages</strong> bereitgestellt, einen Webhosting-Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (Mutterkonzern: Microsoft Corporation). Beim Aufruf dieser Website übermittelt Ihr Browser automatisch technische Zugriffsdaten (wie IP-Adresse, Browsertyp, Betriebssystem, Datum und Uhrzeit der Serveranfrage sowie die aufgerufene URL) an die Server von GitHub. Dies ist technisch erforderlich, um Ihnen unsere Website stabil und sicher bereitzustellen.
+        <strong>Hosting über GitHub Pages</strong><br />
+        Unsere Website wird über GitHub Pages bereitgestellt, einen Dienst der GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (Mutterkonzern: Microsoft Corporation). Beim Aufruf der Website übermittelt Ihr Browser automatisch technische Zugriffsdaten an die Server von GitHub. Dazu gehören IP-Adresse, Browsertyp, Betriebssystem, Datum und Uhrzeit des Zugriffs sowie die aufgerufene URL. Dies ist technisch erforderlich, um die Website auszuliefern und ihre Sicherheit zu gewährleisten.
       </p>
       <p>
-        Rechtsgrundlage für diese Verarbeitung ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (unser berechtigtes Interesse an einer verlässlichen, performanten und sicheren Bereitstellung unseres Online-Angebots). GitHub ist unter dem <strong>EU-U.S. Data Privacy Framework (DPF)</strong> zertifiziert, wodurch ein angemessenes Datenschutzniveau gemäß Art. 45 DSGVO gewährleistet ist. Zudem finden die Standardvertragsklauseln (SCC) im Rahmen des GitHub Data Protection Addendum (DPA) Anwendung. Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
+        Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse liegt in einer verlässlichen, performanten und sicheren Bereitstellung unseres Online-Angebots. Die Daten werden in die USA übermittelt. GitHub ist unter dem EU-U.S. Data Privacy Framework (DPF) zertifiziert. Für die Übermittlung liegt damit ein Angemessenheitsbeschluss der EU-Kommission vor (Art. 45 DSGVO). Auf Art und Dauer der Speicherung der Zugriffsdaten durch GitHub haben wir keinen Einfluss. Weitere Informationen finden Sie im <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
+      </p>
+      <p>
+        Die Bereitstellung dieser Daten ist für den Aufruf der Website erforderlich. Ohne sie kann die Website nicht angezeigt werden.
       </p>
       <p>
         <strong>Lokale Bereitstellung aller Assets (Keine externen Drittanbieter-Schriften/CDNs):</strong> Sämtliche eingebundenen Schriftarten (Inter, JetBrains Mono), Skripte und Medien werden direkt über unser Repository und GitHub Pages ausgeliefert. Es erfolgt <strong>kein Nachladen von externen Drittanbietern</strong> wie Google Fonts oder externen Content Delivery Networks.
       </p>
       <p>
-        <strong>Kontaktaufnahme per E-Mail:</strong> Wenn Sie uns per E-Mail kontaktieren (z. B. an <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), verarbeiten wir die von Ihnen freiwillig mitgeteilten Daten (Ihre E-Mail-Adresse, Name und den Inhalt Ihrer Nachricht), um Ihr Anliegen zu bearbeiten. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO bzw. Art. 6 Abs. 1 lit. b DSGVO (bei vertragsbezogenen Anfragen).
+        <strong>Kontaktaufnahme per E-Mail oder Telefon</strong><br />
+        Wenn Sie uns per E-Mail oder telefonisch kontaktieren, verarbeiten wir die von Ihnen mitgeteilten Daten, um Ihr Anliegen zu bearbeiten. Das sind etwa Name, E-Mail-Adresse, Telefonnummer und der Inhalt Ihrer Nachricht. Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO, soweit Ihre Anfrage mit einem Vertrag oder vorvertraglichen Maßnahmen zusammenhängt, und im Übrigen Art. 6 Abs. 1 lit. f DSGVO (unser berechtigtes Interesse an der Beantwortung von Anfragen).
+      </p>
+      <p>
+        Unser E-Mail-Postfach wird bei der STRATO GmbH, Otto-Ostrowski-Straße 7, 10249 Berlin, betrieben. STRATO verarbeitet die Daten in unserem Auftrag auf Grundlage eines Vertrags zur Auftragsverarbeitung nach Art. 28 DSGVO.
+      </p>
+      <p>
+        <strong>Keine automatisierte Entscheidungsfindung</strong><br />
+        Eine automatisierte Entscheidungsfindung einschließlich Profiling (Art. 22 DSGVO) findet nicht statt.
       </p>
 
       <h3>VI. Setzen wir Cookies ein?</h3>
@@ -440,10 +462,10 @@ function PrivacyContent({ lang = 'en' }) {
 
       <h3>VII. Speicherdauer</h3>
       <p>
-        Server-Logfiles werden ausschließlich kurzfristig zu Zwecken der Systemsicherheit verarbeitet und routinemäßig gelöscht. Daten aus einer E-Mail-Kontaktaufnahme löschen wir, sobald die Bearbeitung Ihrer Anfrage abgeschlossen ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen.
+        Die Speicherung der Zugriffsdaten durch GitHub richtet sich nach dessen Richtlinien (siehe Abschnitt V). Daten aus einer Kontaktaufnahme löschen wir, sobald Ihre Anfrage abschließend bearbeitet ist und keine gesetzlichen Aufbewahrungspflichten entgegenstehen, etwa handels- oder steuerrechtliche Fristen bei geschäftlicher Korrespondenz.
       </p>
 
-      <h3>VIII. Was sind Ihre Rechte?</h3>
+      <h3>VIII. Ihre Rechte als betroffene Person</h3>
       <p>Hinsichtlich der Verarbeitung Ihrer personenbezogenen Daten haben Sie uns gegenüber das Recht:</p>
       <ul>
         <li>Auskunft über Ihre von uns verarbeiteten Daten zu verlangen (Art. 15 DSGVO);</li>
@@ -451,9 +473,14 @@ function PrivacyContent({ lang = 'en' }) {
         <li>die Löschung Ihrer bei uns gespeicherten Daten zu verlangen (Art. 17 DSGVO);</li>
         <li>die Einschränkung der Verarbeitung zu verlangen (Art. 18 DSGVO);</li>
         <li>Ihre Daten in einem strukturierten, gängigen und maschinenlesbaren Format zu erhalten (Art. 20 DSGVO);</li>
-        <li>sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO);</li>
-        <li><strong>aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit gegen die Verarbeitung Widerspruch einzulegen (Art. 21 DSGVO).</strong></li>
+        <li>sich bei einer Datenschutz-Aufsichtsbehörde zu beschweren (Art. 77 DSGVO).</li>
       </ul>
+      <div className="notice-box">
+        <strong className="notice-title">Widerspruchsrecht nach Art. 21 DSGVO</strong>
+        <p>
+          Soweit wir Ihre Daten auf Grundlage von Art. 6 Abs. 1 lit. f DSGVO verarbeiten, haben Sie das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben, jederzeit Widerspruch gegen diese Verarbeitung einzulegen. Wir verarbeiten Ihre Daten dann nicht mehr, es sei denn, wir können zwingende schutzwürdige Gründe für die Verarbeitung nachweisen, die Ihre Interessen, Rechte und Freiheiten überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen. Ein formloser Widerspruch an <a href="mailto:info@orefy.cloud">info@orefy.cloud</a> genügt.
+        </p>
+      </div>
 
       <h3>IX. Bei wem können Sie sich beschweren?</h3>
       <p>
@@ -509,16 +536,28 @@ function PrivacyContent({ lang = 'en' }) {
       Our website is purely informational without user accounts, login, registration, or payment processing.
     </p>
     <p>
-      <strong>Hosting via GitHub Pages:</strong> Our website is hosted using <strong>GitHub Pages</strong>, a web hosting service provided by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (parent company: Microsoft Corporation). When you visit our website, your browser automatically transmits technical access data (such as IP address, browser type, operating system, date and time of server access, and the requested URL) to GitHub's servers. This is technically necessary to provide you with a stable and secure website.
+      <strong>Hosting via GitHub Pages</strong><br />
+      Our website is hosted on GitHub Pages, a service provided by GitHub, Inc., 88 Colin P. Kelly Jr. Street, San Francisco, CA 94107, USA (parent company: Microsoft Corporation). When you visit our website, your browser automatically transmits technical access data to GitHub's servers. This includes your IP address, browser type, operating system, date and time of access, and the requested URL. This is technically necessary to deliver the website and keep it secure.
     </p>
     <p>
-      The legal basis for this processing is <strong>Art. 6 (1) (f) GDPR</strong> (our legitimate interest in the reliable, performant, and secure operation of our website). GitHub is certified under the <strong>EU-U.S. Data Privacy Framework (DPF)</strong>, ensuring an adequate level of data protection pursuant to Art. 45 GDPR. Furthermore, Standard Contractual Clauses (SCC) apply through GitHub's Data Protection Addendum (DPA). For more information: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
+      The legal basis is Art. 6 (1) (f) GDPR. Our legitimate interest lies in the reliable, performant and secure operation of our website. The data is transferred to the USA. GitHub is certified under the EU-U.S. Data Privacy Framework (DPF), so the transfer is covered by an adequacy decision of the European Commission (Art. 45 GDPR). We have no influence on how long GitHub stores this access data. For more information, see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.
+    </p>
+    <p>
+      Providing this data is required to access the website. Without it, the website cannot be displayed.
     </p>
     <p>
       <strong>Local Delivery of Assets (No Third-Party CDNs or Fonts):</strong> All typography (Inter, JetBrains Mono), scripts, and assets are served directly through our repository on GitHub Pages. There is <strong>no dynamic loading from third parties</strong> such as Google Fonts or external CDNs.
     </p>
     <p>
-      <strong>Contact via E-Mail:</strong> If you contact us via email (e.g. at <a href="mailto:info@orefy.cloud">info@orefy.cloud</a>), we process the data you voluntarily provide (email address, name, message content) to handle your inquiry. Legal basis: Art. 6 (1) (f) GDPR or Art. 6 (1) (b) GDPR for contract-related requests.
+      <strong>Contact via E-Mail or Phone</strong><br />
+      If you contact us by email or phone, we process the data you provide in order to handle your inquiry. This includes your name, email address, phone number and the content of your message. The legal basis is Art. 6 (1) (b) GDPR where your inquiry relates to a contract or pre-contractual measures, and otherwise Art. 6 (1) (f) GDPR (our legitimate interest in responding to inquiries).
+    </p>
+    <p>
+      Our email mailbox is hosted by STRATO GmbH, Otto-Ostrowski-Straße 7, 10249 Berlin, Germany. STRATO processes the data on our behalf under a data processing agreement pursuant to Art. 28 GDPR.
+    </p>
+    <p>
+      <strong>No Automated Decision-Making</strong><br />
+      No automated decision-making, including profiling (Art. 22 GDPR), takes place.
     </p>
 
     <h3>VI. Do we use Cookies?</h3>
@@ -528,7 +567,7 @@ function PrivacyContent({ lang = 'en' }) {
 
     <h3>VII. Storage Duration</h3>
     <p>
-      Server log files are processed short-term for IT security purposes and deleted routinely. Inquiries via email are deleted once the matter is conclusively resolved and no statutory retention requirements apply.
+      GitHub's storage of access data is governed by its own policies (see Section V). We delete data from inquiries once they have been fully resolved, unless statutory retention obligations apply, such as commercial or tax-law retention periods for business correspondence.
     </p>
 
     <h3>VIII. What are your Rights?</h3>
@@ -539,9 +578,14 @@ function PrivacyContent({ lang = 'en' }) {
       <li>Right to Erasure ("Right to be forgotten") (Art. 17 GDPR);</li>
       <li>Right to Restriction of processing (Art. 18 GDPR);</li>
       <li>Right to Data Portability (Art. 20 GDPR);</li>
-      <li>Right to lodge a complaint with a supervisory authority (Art. 77 GDPR);</li>
-      <li><strong>Right to Object on grounds relating to your particular situation (Art. 21 GDPR).</strong></li>
+      <li>Right to lodge a complaint with a supervisory authority (Art. 77 GDPR).</li>
     </ul>
+    <div className="notice-box">
+      <strong className="notice-title">Right to Object pursuant to Art. 21 GDPR</strong>
+      <p>
+        Where we process your data on the basis of Art. 6 (1) (f) GDPR, you have the right to object to this processing at any time on grounds relating to your particular situation. We will then no longer process your data, unless we can demonstrate compelling legitimate grounds for the processing that override your interests, rights and freedoms, or the processing serves the establishment, exercise or defence of legal claims. An informal objection sent to <a href="mailto:info@orefy.cloud">info@orefy.cloud</a> is sufficient.
+      </p>
+    </div>
 
     <h3>IX. Competent Supervisory Authority</h3>
     <p>
@@ -556,7 +600,7 @@ function PrivacyContent({ lang = 'en' }) {
       Our website is transmitted strictly encrypted using modern SSL/TLS (HTTPS).
     </p>
     <p style={{ marginTop: 24, fontSize: 13, color: 'var(--text-muted)' }}>
-      Status: November 2026 · <a href="privacy.html" target="_blank" rel="noopener noreferrer">Open standalone page ↗</a>
+      Last updated: November 2026 · <a href="privacy.html" target="_blank" rel="noopener noreferrer">Open standalone page ↗</a>
     </p>
   </>);
 }
@@ -577,11 +621,27 @@ function App() {
     try { localStorage.setItem('orefy_legal_lang', l); } catch (e) {}
   };
 
-  const [modal, setModal] = React.useState(null);
+  const [modal, setModal] = React.useState(() => {
+    try {
+      if (typeof window !== 'undefined' && window.location.hash) {
+        if (window.location.hash === '#imprint') return 'imprint';
+        if (window.location.hash === '#privacy') return 'privacy';
+      }
+    } catch (e) {}
+    return null;
+  });
   const t = T[lang];
   const [scrolled, setScrolled] = React.useState(false);
   const [active, setActive] = React.useState('');
   const navRef = React.useRef(null);
+  React.useEffect(() => {
+    const onHash = () => {
+      if (window.location.hash === '#imprint') setModal('imprint');
+      else if (window.location.hash === '#privacy') setModal('privacy');
+    };
+    window.addEventListener('hashchange', onHash);
+    return () => window.removeEventListener('hashchange', onHash);
+  }, []);
   React.useEffect(() => {
     const onScroll = () => {
       const y = window.scrollY;
@@ -650,8 +710,8 @@ function App() {
       <img src="assets/orefy-logo-dark.svg" alt="orefy" />
       <span>{t.footer.copy}</span>
       <div className="links">
-        <a href="#imprint" onClick={(e) => { e.preventDefault(); setModal('imprint'); }}>{t.footer.imprint}</a>
-        <a href="#privacy" onClick={(e) => { e.preventDefault(); setModal('privacy'); }}>{t.footer.privacy}</a>
+        <a href="imprint.html" onClick={(e) => { if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) { e.preventDefault(); setModal('imprint'); } }}>{t.footer.imprint}</a>
+        <a href="privacy.html" onClick={(e) => { if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) { e.preventDefault(); setModal('privacy'); } }}>{t.footer.privacy}</a>
         <a href="mailto:info@orefy.cloud">{t.footer.contact}</a>
       </div>
     </div></footer>
