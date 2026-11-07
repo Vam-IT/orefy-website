@@ -3,15 +3,98 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Orefy · Take control of your cloud</title>
-<link rel="icon" href="assets/orefy-favicon.svg">
-<link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/fonts.css">
+<title>Orefy · Take Control of Your Cloud | ClickOps to Terraform &amp; IaC</title>
+<meta name="description" content="Turn unmanaged ClickOps cloud infrastructure into clean, modular Infrastructure as Code (Terraform &amp; OpenTofu). Read-only discovery, zero-drift verification, and automated compliance scanning (ISO 27001, BSI C5, NIS2, CIS).">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta name="author" content="VAMIT UG (haftungsbeschränkt)">
+<meta name="theme-color" content="#0A090D">
+<link rel="canonical" href="https://orefy.cloud/">
+<link rel="icon" href="assets/orefy-favicon.svg" type="image/svg+xml">
+
+<!-- Open Graph / Social Sharing (100% locally hosted assets) -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Orefy">
+<meta property="og:locale" content="en_US">
+<meta property="og:url" content="https://orefy.cloud/">
+<meta property="og:title" content="Orefy · Take Control of Your Cloud | ClickOps to Terraform &amp; IaC">
+<meta property="og:description" content="From ClickOps to best-practice modular Infrastructure as Code. Discover cloud resources, generate Terraform/OpenTofu modules, verify zero drift, and scan for compliance.">
+<meta property="og:image" content="https://orefy.cloud/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Orefy – From ClickOps to best-practice modular Infrastructure as Code">
+
+<!-- Twitter / X Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Orefy · Take Control of Your Cloud | ClickOps to Terraform &amp; IaC">
+<meta name="twitter:description" content="From ClickOps to best-practice modular Infrastructure as Code. Discover cloud resources, generate Terraform/OpenTofu modules, verify zero drift, and scan for compliance.">
+<meta name="twitter:image" content="https://orefy.cloud/assets/og-image.png">
+
+<!-- Preload critical local fonts -->
+<link rel="preload" href="assets/fonts/inter-400-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-700-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/inter-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/colors.css">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/typography.css">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/spacing.css">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/effects.css">
 <link rel="stylesheet" href="assets/fonts/fonts.css">
 <style>:root{--font-sans:'Inter',ui-sans-serif,system-ui,sans-serif;--font-display:'Inter',ui-sans-serif,system-ui,sans-serif;--font-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace}body{font-variant-numeric:tabular-nums}</style>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://orefy.cloud/#organization",
+      "name": "Orefy",
+      "legalName": "VAMIT UG (haftungsbeschränkt)",
+      "url": "https://orefy.cloud/",
+      "logo": "https://orefy.cloud/assets/orefy-logo-dark.svg",
+      "email": "info@orefy.cloud",
+      "telephone": "+49-176-23204351",
+      "vatID": "DE462795245",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Petersfeldstraße 16",
+        "postalCode": "46395",
+        "addressLocality": "Bocholt",
+        "addressCountry": "DE"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://orefy.cloud/#website",
+      "url": "https://orefy.cloud/",
+      "name": "Orefy",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://orefy.cloud/#organization"
+      }
+    },
+    {
+      "@type": "SoftwareApplication",
+      "@id": "https://orefy.cloud/#application",
+      "name": "Orefy",
+      "applicationCategory": "DeveloperApplication",
+      "operatingSystem": "Cloud, Web",
+      "url": "https://orefy.cloud/",
+      "description": "Turn unmanaged ClickOps cloud environments into clean, modular Infrastructure as Code (Terraform and OpenTofu) with zero-drift verification and automated security & compliance scanning.",
+      "featureList": [
+        "Read-only multi-account cloud resource discovery",
+        "Modular Infrastructure as Code generation (Terraform / OpenTofu)",
+        "Zero-drift plan verification against live cloud environments",
+        "Security and compliance scanning (CIS Benchmarks, ISO 27001, BSI C5, NIS2)"
+      ],
+      "publisher": {
+        "@id": "https://orefy.cloud/#organization"
+      }
+    }
+  ]
+}
+</script>
 
 <style>
 *{box-sizing:border-box}
@@ -380,11 +463,29 @@ footer .links a:hover{color:var(--slate-50)}
     </p>
   </div>
 </noscript>
-<div id="root"></div>
-<script src="assets/vendor/react.development.js"></script>
-<script src="assets/vendor/react-dom.development.js"></script>
-<script src="assets/vendor/babel.min.js"></script>
-<script src="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/_ds_bundle.js"></script>
+<div id="root"><nav class="nav" aria-label="Main navigation"><div class="wrap"><a href="#top"><img src="assets/orefy-logo-dark.svg" alt="Orefy" width="88" height="26"></a><div class="nav-links"><a href="#how">How it works</a><a href="#contact">Early access</a></div><span class="nav-prog"></span></div></nav><main><header class="hero" id="top" data-theme="dark" data-screen-label="Hero"><div class="wrap hero-grid"><div><span class="over">From ClickOps to code</span><h1 style="margin-top:18px">Take control of <em>your cloud.</em></h1><p class="lede">From ClickOps to <strong>best-practice modular Infrastructure as Code.</strong></p><div class="cta-row"><a href="#contact" style="text-decoration:none"><button type="button" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;height:var(--control-h-lg);padding:0 18px;font-family:var(--font-sans);font-size:15px;font-weight:600;letter-spacing:-0.005em;line-height:1;white-space:nowrap;background:var(--accent);color:var(--text-on-accent);border:1px solid transparent;border-radius:var(--radius-md);cursor:pointer;transform:none;transition:background var(--dur-fast) var(--ease-out),transform var(--dur-fast);outline:none" class="btn-prem">Contact us<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></a><a href="#how" style="text-decoration:none"><button type="button" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;height:var(--control-h-lg);padding:0 18px;font-family:var(--font-sans);font-size:15px;font-weight:600;letter-spacing:-0.005em;line-height:1;white-space:nowrap;background:transparent;color:var(--slate-200);border:1px solid transparent;border-radius:var(--radius-md);cursor:pointer;transform:none;transition:background var(--dur-fast) var(--ease-out),transform var(--dur-fast);outline:none" class="btn-glass">See how it works</button></a></div></div><div class="console"><div class="console-bar"><div class="dots"><i></i><i></i><i></i></div><span class="mono">orefy · prod-eu</span></div><div class="split"><div><div class="col-h"><span>Live environment</span><span class="mono">raw</span></div><div class="res on"><i class="k"></i><span class="n">vpc-0a3f91c2</span><span class="t">clickops</span></div><div class="res"><i class="k"></i><span class="n">subnet-private-a</span><span class="t">clickops</span></div><div class="res"><i class="k"></i><span class="n">prod-orders-db</span><span class="t">clickops</span></div><div class="res"><i class="k"></i><span class="n">alb-checkout</span><span class="t">clickops</span></div><div class="res"><i class="k"></i><span class="n">ecs-cluster-core</span><span class="t">clickops</span></div><div class="res"><i class="k"></i><span class="n">s3-media-uploads</span><span class="t">clickops</span></div></div><div><div class="col-h"><span>Infrastructure as Code</span><span class="mono" style="color:var(--ore-400)">refined</span></div><div class="tree">modules/<span class="cur">network</span> · database · compute</div><div class="code"><span class="kw">module</span> <span class="s">&quot;network&quot;</span> {
+  <span class="a">source</span> = <span class="s">&quot;./modules/network&quot;</span>
+  <span class="a">cidr</span>   = <span class="s">&quot;10.20.0.0/16&quot;</span>
+  <span class="a">azs</span>    = local.azs
+}
+<span class="c"># plan: 0 to add, 0 to change</span></div></div></div><div class="console-foot"><span class="mono">0/6</span><div class="bar"><i style="width:0%"></i></div><span>Codifying…</span></div></div></div><div class="hero-foot"><div class="wrap"><a href="#how"><span>01</span>Discover</a><a href="#how"><span>02</span>Codify</a><a href="#how"><span>03</span>Verify</a><a href="#how"><span>04</span>Scan</a></div></div></header><section class="block" id="how" data-screen-label="How it works"><div class="wrap"><div class="sec-head"><div><span class="over">How it works</span><h2>Raw infrastructure in. Refined code out.</h2></div></div><div class="pipe"><div class="steps"><button class="step on"><span class="num">01</span><h3>Discover what runs in your environment</h3><p>Read-only scan across accounts and regions. Every resource, who created it, and whether it is managed at all.</p><span class="prog"></span></button><button class="step"><span class="num">02</span><h3>Turn it into clean, modular Infrastructure as Code</h3><p>Reusable modules, separated environments, readable variables. The structure a senior platform engineer would write.</p><span class="prog"></span></button><button class="step"><span class="num">03</span><h3>Verify that nothing changed along the way</h3><p>Each module is planned against the live environment. You ship code only when the diff is zero.</p><span class="prog"></span></button><button class="step"><span class="num">04</span><h3>Scan for security and compliance gaps</h3><p>Findings mapped to the frameworks you report on, with fixes delivered as code changes.</p><span class="prog"></span></button></div><div class="panel"><div class="panel-h"><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--accent-soft);color:var(--accent-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap">01 Discover</span><strong>Inventory · 3 accounts</strong></div><div class="panel-b" aria-hidden="false"><div class="stats"><div><b>2,418</b><span>Resources</span></div><div><b>3</b><span>Accounts</span></div><div><b>6</b><span>Regions</span></div><div><b>71%</b><span>Unmanaged</span></div></div><div class="table-wrap"><table class="t"><thead><tr><th>Resource</th><th>Type</th><th>CIDR</th><th>Managed by</th></tr></thead><tbody><tr><td class="mono">vpc-07c1e9a4f2d83b51</td><td>VPC</td><td class="mono" style="color:var(--text-muted)">172.31.0.0/16</td><td><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--warning-soft);color:var(--warning-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:var(--warning)"></span>ClickOps</span></td></tr><tr><td class="mono">subnet-0b7a2e19c4d58f03</td><td>Subnet</td><td class="mono" style="color:var(--text-muted)">172.31.16.0/20</td><td><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--warning-soft);color:var(--warning-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:var(--warning)"></span>ClickOps</span></td></tr><tr><td class="mono">subnet-04e8c3f6a91b72d5</td><td>Subnet</td><td class="mono" style="color:var(--text-muted)">172.31.0.0/20</td><td><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--warning-soft);color:var(--warning-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:var(--warning)"></span>ClickOps</span></td></tr><tr><td class="mono">subnet-0c95d1b7e3a40f68</td><td>Subnet</td><td class="mono" style="color:var(--text-muted)">172.31.32.0/20</td><td><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--warning-soft);color:var(--warning-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap"><span style="width:6px;height:6px;border-radius:50%;background:var(--warning)"></span>ClickOps</span></td></tr></tbody></table></div></div><div class="panel-b" style="display:none" aria-hidden="true"><div class="two"><div class="ftree">infrastructure/<br>├─ modules/<br>│  ├─ network/<br>│  ├─ <span class="cur">database/</span><br>│  └─ compute/<br>└─ envs/<br>   ├─ prod/<br>   └─ staging/</div><div class="code-l"><div class="code"><span class="c"># envs/prod/database.tf · generated by Orefy</span>
+<span class="kw">module</span> <span class="s">&quot;orders_db&quot;</span> {
+  <span class="a">source</span>         = <span class="s">&quot;../../modules/database&quot;</span>
+  <span class="a">name</span>           = <span class="s">&quot;prod-orders-db&quot;</span>
+  <span class="a">engine_version</span> = <span class="s">&quot;16.4&quot;</span>
+  <span class="a">instance_class</span> = var.db_class
+  <span class="a">subnet_ids</span>     = module.network.private_ids
+  <span class="a">tags</span>           = local.tags
+}
+
+<span class="kw">import</span> {
+  <span class="a">to</span> = module.orders_db.aws_db_instance.this
+  <span class="a">id</span> = <span class="s">&quot;prod-orders-db&quot;</span>
+}</div></div></div></div><div class="panel-b" style="display:none" aria-hidden="true"><div class="verify"><div class="ok"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21.8 10A10 10 0 1 1 17 3.3"></path><path d="m9 11 3 3L22 4"></path></svg><div><b>No changes. Code matches your live environment.</b><span>Plan ran against 2,418 imported resources in 3 accounts: 0 to add, 0 to change, 0 to destroy.</span></div></div><div><div class="diffrow" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-subtle);border-bottom:1px solid var(--border-default)"><span>Module</span><span>Resources</span><span>Drift</span><span>Status</span></div><div class="diffrow"><span class="mono">module.network</span><span>412</span><span class="mono">0</span><span class="match"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Match</span></div><div class="diffrow"><span class="mono">module.database</span><span>38</span><span class="mono">0</span><span class="match"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Match</span></div><div class="diffrow"><span class="mono">module.compute</span><span>1,206</span><span class="mono">0</span><span class="match"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Match</span></div><div class="diffrow"><span class="mono">module.storage</span><span>94</span><span class="mono">0</span><span class="match"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Match</span></div></div></div></div><div class="panel-b" style="display:none" aria-hidden="true"><div class="fw"><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:var(--radius-pill);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-body);font-family:var(--font-sans);font-size:13px;font-weight:500;cursor:default">CIS Benchmarks</span><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:var(--radius-pill);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-body);font-family:var(--font-sans);font-size:13px;font-weight:500;cursor:default">ISO 27001</span><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:var(--radius-pill);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-body);font-family:var(--font-sans);font-size:13px;font-weight:500;cursor:default">BSI C5</span><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:var(--radius-pill);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-body);font-family:var(--font-sans);font-size:13px;font-weight:500;cursor:default">NIS2</span><span style="display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 10px;border-radius:var(--radius-pill);border:1px solid var(--border-default);background:var(--surface-card);color:var(--text-body);font-family:var(--font-sans);font-size:13px;font-weight:500;cursor:default">Custom policies</span></div><div class="finding"><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--danger-soft);color:var(--danger-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap">High</span><div><b>Storage bucket allows public read</b><small class="mono">s3-media-uploads</small></div><span class="ctl">CIS 2.1.5</span></div><div class="finding"><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--danger-soft);color:var(--danger-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap">High</span><div><b>Database not encrypted at rest</b><small class="mono">legacy-reports-db</small></div><span class="ctl">BSI C5 KRY-03</span></div><div class="finding"><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--warning-soft);color:var(--warning-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap">Medium</span><div><b>Security group open to 0.0.0.0/0 on 22</b><small class="mono">sg-bastion-old</small></div><span class="ctl">ISO 27001 A.8.20</span></div><div class="finding"><span style="display:inline-flex;align-items:center;gap:6px;height:20px;padding:0 8px;border-radius:var(--radius-sm);background:var(--info-soft);color:var(--info-text);font-family:var(--font-sans);font-size:12px;font-weight:600;line-height:1;white-space:nowrap">Low</span><div><b>Missing cost-center tag</b><small class="mono">184 resources</small></div><span class="ctl">Internal policy</span></div><p style="margin-top:16px;font-size:13px;color:var(--text-muted)">Every finding ships with a fix, as a change to your code, not a console click.</p></div></div></div></div></section><section class="cta" id="contact" data-theme="dark" data-screen-label="Waitlist"><div class="wrap cta-box"><div><span class="over">Available from Q1 2027</span><h2 style="margin-top:14px">Refine <em>the raw.</em></h2><p class="sub">Be among the first teams to bring their cloud under control.</p></div><div class="form"><span style="font-size:14px;color:var(--text-body)">Interested in early access? Write us and we will get back to you.</span><a href="mailto:info@orefy.cloud" class="form-btn-link" style="text-decoration:none"><button type="button" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;height:var(--control-h-lg);padding:0 18px;font-family:var(--font-sans);font-size:15px;font-weight:600;letter-spacing:-0.005em;line-height:1;white-space:nowrap;background:var(--accent);color:var(--text-on-accent);border:1px solid transparent;border-radius:var(--radius-md);cursor:pointer;transform:none;transition:background var(--dur-fast) var(--ease-out),transform var(--dur-fast);outline:none" class="btn-prem">Contact us<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg></button></a><span class="mono" style="font-size:12px;color:var(--text-muted)">info@orefy.cloud</span></div></div></section></main><footer data-theme="dark"><div class="wrap"><img src="assets/orefy-logo-dark.svg" alt="Orefy" width="74" height="22"><span>© 2026 Orefy · VAMIT UG (haftungsbeschränkt)</span><div class="links"><a href="imprint.html">Imprint</a><a href="privacy.html">Privacy Policy</a><a href="mailto:info@orefy.cloud">Contact</a></div></div></footer></div>
+<script defer src="assets/vendor/react.development.js"></script>
+<script defer src="assets/vendor/react-dom.development.js"></script>
+<script defer src="assets/vendor/babel.min.js"></script>
+<script defer src="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/_ds_bundle.js"></script>
 <script type="text/babel" src="orefy-panels.jsx"></script>
 <script type="text/babel" src="orefy-app.jsx"></script>
 </body>

@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /Orefy%20Website.html
+
+Sitemap: https://orefy.cloud/sitemap.xml
+

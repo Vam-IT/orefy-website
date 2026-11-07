@@ -136,7 +136,6 @@ function DesktopPipeline({ lang = 'en' }) {
   React.useEffect(() => { const timer = setTimeout(() => setA(x => (x + 1) % steps.length), 7000); return () => clearTimeout(timer); }, [a, key, steps.length]);
 
   const S = steps[a];
-  const P = STEP_PANELS[S.k];
 
   return (
     <div className="pipe">
@@ -152,7 +151,14 @@ function DesktopPipeline({ lang = 'en' }) {
       </div>
       <div className="panel">
         <div className="panel-h"><Badge tone="ore">{'0' + (a + 1) + ' ' + s_tab(S)}</Badge><strong>{S.h}</strong></div>
-        <div className="panel-b" key={a + lang}><P lang={lang} /></div>
+        {steps.map((s, n) => {
+          const P = STEP_PANELS[s.k];
+          return (
+            <div className="panel-b" key={s.k + lang} style={n === a ? undefined : { display: 'none' }} aria-hidden={n !== a}>
+              <P lang={lang} />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
@@ -216,9 +222,6 @@ function MobilePipeline({ lang = 'en' }) {
     go(Math.min(steps.length - 1, Math.max(0, a + (dx < 0 ? 1 : -1))));
   };
 
-  const S = steps[a];
-  const P = STEP_PANELS[S.k];
-
   return (
     <div className="mpipe" ref={root}>
       <div className="mstepper">
@@ -228,15 +231,20 @@ function MobilePipeline({ lang = 'en' }) {
           </button>
         ))}
       </div>
-      <div className="mstep" key={a} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
-        <span className="mstep-count">{t.step} {a + 1} {t.of} {steps.length}</span>
-        <h3>{S.t}</h3>
-        <p>{S.d}</p>
-        <div className="panel">
-          <div className="panel-h"><strong>{S.h}</strong></div>
-          <div className="panel-b"><P lang={lang} /></div>
-        </div>
-      </div>
+      {steps.map((s, n) => {
+        const P = STEP_PANELS[s.k];
+        return (
+          <div className="mstep" key={s.k} style={n === a ? undefined : { display: 'none' }} aria-hidden={n !== a} onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+            <span className="mstep-count">{t.step} {n + 1} {t.of} {steps.length}</span>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+            <div className="panel">
+              <div className="panel-h"><strong>{s.h}</strong></div>
+              <div className="panel-b"><P lang={lang} /></div>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 }
@@ -457,7 +465,7 @@ function PrivacyContent({ lang = 'en' }) {
 
       <h3>VI. Setzen wir Cookies ein?</h3>
       <p>
-        Unsere Internetseite setzt <strong>weder eigene Cookies noch Cookies von Drittanbietern</strong> ein. Es werden auch keine Daten im Local Storage oder Session Storage zu Tracking- oder Werbezwecken gespeichert. Es findet keinerlei webseitenübergreifendes Tracking oder Profiling statt. Ein Cookie-Banner ist daher nach § 25 Abs. 2 TDDDG nicht erforderlich.
+        Unsere Internetseite setzt <strong>weder eigene Cookies noch Cookies von Drittanbietern</strong> ein. Es werden auch keinerlei Daten im Local Storage oder Session Storage auf Ihrem Endgerät gespeichert. Es findet keinerlei webseitenübergreifendes Tracking oder Profiling statt. Ein Cookie-Banner ist daher nach § 25 Abs. 2 TDDDG nicht erforderlich.
       </p>
 
       <h3>VII. Speicherdauer</h3>
@@ -562,7 +570,7 @@ function PrivacyContent({ lang = 'en' }) {
 
     <h3>VI. Do we use Cookies?</h3>
     <p>
-      Our website sets <strong>neither first-party nor third-party cookies</strong>. No tracking or marketing data is stored in Local Storage or Session Storage. No cross-site profiling or tracking takes place. Therefore, a cookie consent banner is not required under Section 25 (2) TDDDG.
+      Our website sets <strong>neither first-party nor third-party cookies</strong>. No data is stored in Local Storage or Session Storage on your device. No cross-site profiling or tracking takes place. Therefore, a cookie consent banner is not required under Section 25 (2) TDDDG.
     </p>
 
     <h3>VII. Storage Duration</h3>
@@ -608,18 +616,13 @@ function PrivacyContent({ lang = 'en' }) {
 function App() {
   const lang = 'en';
 
-  const [legalLang, setLegalLangState] = React.useState(() => {
+  const [legalLang, setLegalLang] = React.useState(() => {
     try {
-      return localStorage.getItem('orefy_legal_lang') || (navigator.language.startsWith('de') ? 'de' : 'en');
+      return (typeof navigator !== 'undefined' && navigator.language && navigator.language.toLowerCase().startsWith('de')) ? 'de' : 'en';
     } catch (e) {
       return 'en';
     }
   });
-
-  const setLegalLang = (l) => {
-    setLegalLangState(l);
-    try { localStorage.setItem('orefy_legal_lang', l); } catch (e) {}
-  };
 
   const [modal, setModal] = React.useState(() => {
     try {
@@ -661,53 +664,55 @@ function App() {
   }, []);
 
   return (<>
-    <nav ref={navRef} className={'nav' + (scrolled ? ' scrolled' : '')}><div className="wrap">
-      <a href="#top"><img src="assets/orefy-logo-dark.svg" alt="orefy" /></a>
+    <nav ref={navRef} className={'nav' + (scrolled ? ' scrolled' : '')} aria-label="Main navigation"><div className="wrap">
+      <a href="#top"><img src="assets/orefy-logo-dark.svg" alt="Orefy" width="88" height="26" /></a>
       <div className="nav-links"><a href="#how" className={active === 'how' ? 'active' : ''}>{t.nav.how}</a><a href="#contact" className={active === 'contact' ? 'active' : ''}>{t.nav.early}</a></div>
       <span className="nav-prog"></span>
     </div></nav>
 
-    <header className="hero" id="top" data-theme="dark" data-screen-label="Hero">
-      <div className="wrap hero-grid">
-        <div>
-          <span className="over">{t.hero.over}</span>
-          <h1 style={{ marginTop: 18 }}>{t.hero.h1_pre}<em>{t.hero.h1_em}</em></h1>
-          <p className="lede">{t.hero.lede_pre}<strong>{t.hero.lede_strong}</strong></p>
-          <div className="cta-row">
-            <a href="#contact" style={{ textDecoration: 'none' }}><Button className="btn-prem" size="lg" iconRight={<Ico d={I.arrow} />}>{t.hero.cta_contact}</Button></a>
-            <a href="#how" style={{ textDecoration: 'none' }}><Button className="btn-glass" size="lg" variant="ghost" style={{ color: 'var(--slate-200)' }}>{t.hero.cta_how}</Button></a>
+    <main>
+      <header className="hero" id="top" data-theme="dark" data-screen-label="Hero">
+        <div className="wrap hero-grid">
+          <div>
+            <span className="over">{t.hero.over}</span>
+            <h1 style={{ marginTop: 18 }}>{t.hero.h1_pre}<em>{t.hero.h1_em}</em></h1>
+            <p className="lede">{t.hero.lede_pre}<strong>{t.hero.lede_strong}</strong></p>
+            <div className="cta-row">
+              <a href="#contact" style={{ textDecoration: 'none' }}><Button className="btn-prem" size="lg" iconRight={<Ico d={I.arrow} />}>{t.hero.cta_contact}</Button></a>
+              <a href="#how" style={{ textDecoration: 'none' }}><Button className="btn-glass" size="lg" variant="ghost" style={{ color: 'var(--slate-200)' }}>{t.hero.cta_how}</Button></a>
+            </div>
           </div>
+          <HeroConsole lang={lang} />
         </div>
-        <HeroConsole lang={lang} />
-      </div>
-      <div className="hero-foot"><div className="wrap">
-        {t.steps.map((s, n) => <a key={s.k} href="#how"><span>0{n + 1}</span>{s_tab(s)}</a>)}
-      </div></div>
-    </header>
+        <div className="hero-foot"><div className="wrap">
+          {t.steps.map((s, n) => <a key={s.k} href="#how"><span>0{n + 1}</span>{s_tab(s)}</a>)}
+        </div></div>
+      </header>
 
-    <section className="block" id="how" data-screen-label="How it works">
-      <div className="wrap">
-        <div className="sec-head">
-          <div><span className="over">{t.how.over}</span><h2>{t.how.h2}</h2></div>
-          <p>{t.how.p}</p>
+      <section className="block" id="how" data-screen-label="How it works">
+        <div className="wrap">
+          <div className="sec-head">
+            <div><span className="over">{t.how.over}</span><h2>{t.how.h2}</h2></div>
+            {t.how.p && <p>{t.how.p}</p>}
+          </div>
+          <Pipeline lang={lang} />
         </div>
-        <Pipeline lang={lang} />
-      </div>
-    </section>
+      </section>
 
-    <section className="cta" id="contact" data-theme="dark" data-screen-label="Waitlist">
-      <div className="wrap cta-box">
-        <div>
-          <span className="over">{t.cta.over}</span>
-          <h2 style={{ marginTop: 14 }}>{t.cta.h2_pre}<em>{t.cta.h2_em}</em></h2>
-          <p className="sub">{t.cta.sub}</p>
+      <section className="cta" id="contact" data-theme="dark" data-screen-label="Waitlist">
+        <div className="wrap cta-box">
+          <div>
+            <span className="over">{t.cta.over}</span>
+            <h2 style={{ marginTop: 14 }}>{t.cta.h2_pre}<em>{t.cta.h2_em}</em></h2>
+            <p className="sub">{t.cta.sub}</p>
+          </div>
+          <Contact lang={lang} />
         </div>
-        <Contact lang={lang} />
-      </div>
-    </section>
+      </section>
+    </main>
 
     <footer data-theme="dark"><div className="wrap">
-      <img src="assets/orefy-logo-dark.svg" alt="orefy" />
+      <img src="assets/orefy-logo-dark.svg" alt="Orefy" width="74" height="22" />
       <span>{t.footer.copy}</span>
       <div className="links">
         <a href="imprint.html" onClick={(e) => { if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) { e.preventDefault(); setModal('imprint'); } }}>{t.footer.imprint}</a>
