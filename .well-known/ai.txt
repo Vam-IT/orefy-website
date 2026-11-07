@@ -1,0 +1,20 @@
+# AI Crawler & LLM Guidance (.well-known/ai.txt)
+# Domain: https://orefy.cloud/
+# Owner: VAMIT UG (haftungsbeschränkt)
+# Contact: mailto:info@orefy.cloud
+
+User-Agent: *
+Allow: /
+Disallow: /Orefy%20Website.html
+
+# Preferred LLM Context Files
+LLMs-Txt: https://orefy.cloud/llms.txt
+LLMs-Full-Txt: https://orefy.cloud/llms-full.txt
+LLMs-Small-Txt: https://orefy.cloud/llms-small.txt
+Sitemap: https://orefy.cloud/sitemap.xml
+
+# Policy
+Attribution: Required (Orefy - https://orefy.cloud/)
+AI-Indexing: Allowed
+AI-Citation: Allowed
+

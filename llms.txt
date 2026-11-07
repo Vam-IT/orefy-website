@@ -1,0 +1,28 @@
+# Orefy
+
+> Orefy turns unmanaged ClickOps cloud infrastructure into clean, modular Infrastructure as Code (Terraform & OpenTofu) with zero-drift verification and automated security & compliance scanning.
+
+Orefy is a B2B cloud infrastructure platform developed by VAMIT UG (haftungsbeschränkt) in Germany, launching in Q1 2027. It helps engineering, DevOps, and platform teams regain control over existing cloud environments in four steps:
+
+1. **Discover**: Read-only scan across cloud accounts and regions to inventory every resource, who created it, and whether it is managed via IaC or ClickOps.
+2. **Codify**: Automatically generate clean, modular Infrastructure as Code (Terraform and OpenTofu) with reusable modules, separated environments (`prod`, `staging`), readable variables, and native `import` blocks.
+3. **Verify**: Plan every generated module against the live cloud state to guarantee zero drift (`0 to add, 0 to change, 0 to destroy`) before shipping code.
+4. **Scan**: Continuous security, compliance, and cloud-portability analysis mapped to CIS Benchmarks, ISO 27001, BSI C5, NIS2, and custom internal policies—delivering fixes directly as code changes rather than manual console clicks.
+
+## Key Information
+
+- **Product**: Orefy (`https://orefy.cloud/`)
+- **Availability**: Early access · General availability from Q1 2027
+- **Supported IaC Formats**: Terraform, OpenTofu
+- **Supported Compliance Frameworks**: CIS Benchmarks, ISO 27001, BSI C5, NIS2, Custom Policies
+- **Company / Operator**: VAMIT UG (haftungsbeschränkt), Petersfeldstraße 16, 46395 Bocholt, Germany (Managing Director: Veselin Kolev, HRB 23796, VAT ID: DE462795245)
+- **Contact**: `mailto:info@orefy.cloud` · `+49 176 23204351`
+
+## Documentation & Pages
+
+- [Home · Product Overview & Pipeline](https://orefy.cloud/): Overview of the 4-step workflow (Discover, Codify, Verify, Scan) and early access contact.
+- [Full LLM Context](https://orefy.cloud/llms-full.txt): Detailed product specification, workflow examples, and FAQ for AI assistants.
+- [Compact LLM Summary](https://orefy.cloud/llms-small.txt): Ultra-concise summary for small context windows.
+- [Imprint / Legal Notice](https://orefy.cloud/imprint.html): Corporate and legal information pursuant to Section 5 DDG.
+- [Privacy Policy](https://orefy.cloud/privacy.html): GDPR & TDDDG privacy documentation (zero cookies, zero tracking, 100% self-hosted assets).
+

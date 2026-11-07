@@ -10,6 +10,8 @@
 <meta name="author" content="VAMIT UG (haftungsbeschränkt)">
 <meta name="theme-color" content="#0A090D">
 <link rel="canonical" href="https://orefy.cloud/">
+<link rel="alternate" type="text/markdown" href="https://orefy.cloud/llms.txt" title="Orefy LLM Context">
+<link rel="alternate" type="text/markdown" href="https://orefy.cloud/llms-full.txt" title="Orefy Full LLM Context">
 <link rel="icon" href="assets/orefy-favicon.svg" type="image/svg+xml">
 
 <!-- Open Graph / Social Sharing (100% locally hosted assets) -->
@@ -75,6 +77,24 @@
       }
     },
     {
+      "@type": "WebPage",
+      "@id": "https://orefy.cloud/#webpage",
+      "url": "https://orefy.cloud/",
+      "name": "Orefy · Take Control of Your Cloud | ClickOps to Terraform & IaC",
+      "datePublished": "2026-11-02",
+      "dateModified": "2026-11-07",
+      "inLanguage": "en",
+      "isPartOf": {
+        "@id": "https://orefy.cloud/#website"
+      },
+      "about": {
+        "@id": "https://orefy.cloud/#application"
+      },
+      "author": {
+        "@id": "https://orefy.cloud/#organization"
+      }
+    },
+    {
       "@type": "SoftwareApplication",
       "@id": "https://orefy.cloud/#application",
       "name": "Orefy",
@@ -91,6 +111,28 @@
       "publisher": {
         "@id": "https://orefy.cloud/#organization"
       }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://orefy.cloud/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How does Orefy convert ClickOps cloud environments into Infrastructure as Code?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Orefy operates in four steps: (1) Discover resources across accounts and regions via a read-only scan, (2) Codify unmanaged resources into clean, modular Terraform or OpenTofu code with separated environments and native import blocks, (3) Verify each module against the live environment until the plan diff is zero, and (4) Scan for security and compliance gaps (CIS Benchmarks, ISO 27001, BSI C5, NIS2) with fixes delivered directly as code changes."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which Infrastructure as Code and compliance frameworks does Orefy support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Orefy generates modular code for Terraform and OpenTofu and maps security and compliance findings to CIS Benchmarks, ISO 27001, BSI C5, NIS2, and custom internal policies."
+          }
+        }
+      ]
     }
   ]
 }

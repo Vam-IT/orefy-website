@@ -111,12 +111,12 @@ function HeroConsole({ lang = 'en' }) {
           <div className="col-h"><span>{t.refined_h}</span><span className="mono" style={{ color: 'var(--ore-400)' }}>{t.refined_tag}</span></div>
           <div className="tree">modules/<span className="cur">network</span> · database · compute</div>
           <div className="code">
-<span className="kw">module</span> <span className="s">"network"</span> {'{'}{'\n'}
-{'  '}<span className="a">source</span> = <span className="s">"./modules/network"</span>{'\n'}
-{'  '}<span className="a">cidr</span>   = <span className="s">"10.20.0.0/16"</span>{'\n'}
-{'  '}<span className="a">azs</span>    = local.azs{'\n'}
-{'}'}{'\n'}
-<span className="c"># plan: 0 to add, 0 to change</span>
+            <span className="kw">module</span> <span className="s">"network"</span> {'{'}{'\n'}
+            {'  '}<span className="a">source</span> = <span className="s">"./modules/network"</span>{'\n'}
+            {'  '}<span className="a">cidr</span>   = <span className="s">"10.20.0.0/16"</span>{'\n'}
+            {'  '}<span className="a">azs</span>    = local.azs{'\n'}
+            {'}'}{'\n'}
+            <span className="c"># plan: 0 to add, 0 to change</span>
           </div>
         </div>
       </div>
@@ -630,7 +630,7 @@ function App() {
         if (window.location.hash === '#imprint') return 'imprint';
         if (window.location.hash === '#privacy') return 'privacy';
       }
-    } catch (e) {}
+    } catch (e) { }
     return null;
   });
   const t = T[lang];
