@@ -26,8 +26,11 @@ jobs:
           mkdir -p _site
           # -L dereferences symlinks (index.html -> "Orefy Website.html")
           cp -RL index.html "Orefy Website.html" imprint.html privacy.html \
-                 orefy-app.jsx orefy-panels.jsx assets _ds _site/
-          # Serve directories starting with "_" as-is (no Jekyll processing)
+                 orefy-app.jsx orefy-panels.jsx \
+                 robots.txt sitemap.xml llms.txt llms-full.txt llms-small.txt \
+                 .well-known assets _ds _site/
+          if [ -f CNAME ]; then cp CNAME _site/; fi
+          # Serve directories starting with "_" or "." as-is (no Jekyll processing)
           touch _site/.nojekyll
           find _site -name .DS_Store -delete
 
