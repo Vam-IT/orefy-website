@@ -1,6 +1,38 @@
+# Orefy robots.txt — Search Engine & AI Crawler Guidance
+
 User-agent: *
 Allow: /
 Disallow: /Orefy%20Website.html
 
-Sitemap: https://orefy.cloud/sitemap.xml
+# Explicitly allow AI search & answer engine crawlers (GEO)
+User-agent: OAI-SearchBot
+Allow: /
 
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# Sitemaps & LLM Context
+Sitemap: https://orefy.cloud/sitemap.xml
+# LLMs-Txt: https://orefy.cloud/llms.txt
+# LLMs-Full-Txt: https://orefy.cloud/llms-full.txt
