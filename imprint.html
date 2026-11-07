@@ -4,7 +4,11 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title id="page-title">Imprint · Orefy</title>
-<link rel="icon" href="assets/orefy-favicon.svg">
+<meta name="description" content="Legal notice and imprint (Impressum) for Orefy, a service by VAMIT UG (haftungsbeschränkt).">
+<meta name="robots" content="noindex, follow">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="canonical" href="https://orefy.cloud/imprint.html">
+<link rel="icon" href="assets/orefy-favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/colors.css">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/typography.css">
 <link rel="stylesheet" href="_ds/orefy-design-system-e8d10855-3b90-4dc9-aff0-c6948544598a/tokens/spacing.css">
@@ -53,7 +57,7 @@ html[lang="en"] [data-lang-block="en"]{display:block}
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a href="/"><img src="assets/orefy-logo-dark.svg" alt="orefy"></a>
+  <a href="/"><img src="assets/orefy-logo-dark.svg" alt="Orefy" width="81" height="24"></a>
   <div class="nav-actions">
     <div class="lang-switch">
       <button id="btn-en" class="on" onclick="setLang('en')" aria-label="English">EN</button>
@@ -69,7 +73,7 @@ html[lang="en"] [data-lang-block="en"]{display:block}
   <div data-lang-block="en">
     <h1>Imprint</h1>
     <div class="card">
-      <h3>Information pursuant to Section 5 DDG</h3>
+      <h2>Information pursuant to Section 5 DDG</h2>
       <p>
         <strong>VAMIT UG (haftungsbeschränkt)</strong><br>
         Petersfeldstraße 16<br>
@@ -77,30 +81,30 @@ html[lang="en"] [data-lang-block="en"]{display:block}
         Germany
       </p>
 
-      <h3>Represented by</h3>
+      <h2>Represented by</h2>
       <p>
         <strong>Managing Director:</strong> Veselin Kolev
       </p>
 
-      <h3>Commercial Register</h3>
+      <h2>Commercial Register</h2>
       <p>
         <strong>Registration Court:</strong> Local Court (Amtsgericht) Coesfeld<br>
         <strong>Registration Number:</strong> HRB 23796
       </p>
 
-      <h3>VAT ID</h3>
+      <h2>VAT ID</h2>
       <p>
         VAT identification number pursuant to Section 27a of the German VAT Act (UStG): DE462795245
       </p>
 
-      <h3>Contact</h3>
+      <h2>Contact</h2>
       <p>
         <strong>Phone:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br>
         <strong>E-Mail:</strong> <a href="mailto:info@orefy.cloud">info@orefy.cloud</a><br>
         <strong>Web:</strong> <a href="https://vam-it.com/" target="_blank" rel="noopener noreferrer">vam-it.com</a>
       </p>
 
-      <h3>Responsible for Content pursuant to Section 18 (2) MStV</h3>
+      <h2>Responsible for Content pursuant to Section 18 (2) MStV</h2>
       <p>
         Veselin Kolev<br>
         Petersfeldstraße 16<br>
@@ -114,7 +118,7 @@ html[lang="en"] [data-lang-block="en"]{display:block}
   <div data-lang-block="de">
     <h1>Impressum</h1>
     <div class="card">
-      <h3>Angaben gemäß § 5 DDG</h3>
+      <h2>Angaben gemäß § 5 DDG</h2>
       <p>
         <strong>VAMIT UG (haftungsbeschränkt)</strong><br>
         Petersfeldstraße 16<br>
@@ -122,30 +126,30 @@ html[lang="en"] [data-lang-block="en"]{display:block}
         Deutschland
       </p>
 
-      <h3>Vertreten durch</h3>
+      <h2>Vertreten durch</h2>
       <p>
         <strong>Geschäftsführer:</strong> Veselin Kolev
       </p>
 
-      <h3>Registereintrag</h3>
+      <h2>Registereintrag</h2>
       <p>
         <strong>Registergericht:</strong> Amtsgericht Coesfeld<br>
         <strong>Registernummer:</strong> HRB 23796
       </p>
 
-      <h3>Umsatzsteuer-ID</h3>
+      <h2>Umsatzsteuer-ID</h2>
       <p>
         Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE462795245
       </p>
 
-      <h3>Kontakt</h3>
+      <h2>Kontakt</h2>
       <p>
         <strong>Telefon:</strong> <a href="tel:+4917623204351">+49 176 23204351</a><br>
         <strong>E-Mail:</strong> <a href="mailto:info@orefy.cloud">info@orefy.cloud</a><br>
         <strong>Web:</strong> <a href="https://vam-it.com/" target="_blank" rel="noopener noreferrer">vam-it.com</a>
       </p>
 
-      <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
+      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
       <p>
         Veselin Kolev<br>
         Petersfeldstraße 16<br>
@@ -167,7 +171,6 @@ html[lang="en"] [data-lang-block="en"]{display:block}
 <script>
 function setLang(l) {
   document.documentElement.lang = l;
-  try { localStorage.setItem('orefy_legal_lang', l); } catch(e){}
   document.getElementById('btn-de').className = (l === 'de' ? 'on' : '');
   document.getElementById('btn-en').className = (l === 'en' ? 'on' : '');
   document.getElementById('page-title').textContent = (l === 'de' ? 'Impressum · Orefy' : 'Imprint · Orefy');
@@ -176,9 +179,8 @@ function setLang(l) {
   document.getElementById('foot-contact').textContent = (l === 'de' ? 'Kontakt' : 'Contact');
 }
 (function() {
-  var saved = 'en';
-  try { saved = localStorage.getItem('orefy_legal_lang') || (navigator.language.startsWith('de') ? 'de' : 'en'); } catch(e){}
-  setLang(saved === 'de' ? 'de' : 'en');
+  var initial = (navigator.language && navigator.language.toLowerCase().indexOf('de') === 0) ? 'de' : 'en';
+  setLang(initial);
 })();
 </script>
 </body>
