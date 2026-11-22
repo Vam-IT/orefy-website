@@ -73,14 +73,14 @@ html[lang="en"] [data-lang-block="en"]{display:block}
 </head>
 <body>
 <nav class="nav"><div class="wrap">
-  <a href="/"><img src="assets/orefy-logo-dark.svg" alt="Orefy" width="81" height="24"></a>
+  <a href="/" data-home><img src="assets/orefy-logo-dark.svg" alt="Orefy" width="81" height="24"></a>
   <div class="nav-actions">
     <div class="lang-switch">
       <button id="btn-en" class="on" onclick="setLang('en')" aria-label="English">EN</button>
       <span class="lang-sep">|</span>
       <button id="btn-de" onclick="setLang('de')" aria-label="Deutsch">DE</button>
     </div>
-    <a href="/" class="back" id="back-link">← Back to home</a>
+    <a href="/" data-home class="back" id="back-link">← Back to home</a>
   </div>
 </div></nav>
 
@@ -187,6 +187,7 @@ html[lang="en"] [data-lang-block="en"]{display:block}
 <script>
 function setLang(l) {
   document.documentElement.lang = l;
+  document.querySelectorAll('[data-home]').forEach(function (a) { a.href = (l === 'de' ? '/de/' : '/'); });
   document.getElementById('btn-de').className = (l === 'de' ? 'on' : '');
   document.getElementById('btn-en').className = (l === 'en' ? 'on' : '');
   document.getElementById('page-title').textContent = (l === 'de' ? 'Impressum · Orefy' : 'Imprint · Orefy');
@@ -195,7 +196,8 @@ function setLang(l) {
   document.getElementById('foot-contact').textContent = (l === 'de' ? 'Kontakt' : 'Contact');
 }
 (function() {
-  var initial = (navigator.language && navigator.language.toLowerCase().indexOf('de') === 0) ? 'de' : 'en';
+  var wanted = new URLSearchParams(location.search).get('lang');
+  var initial = (wanted === 'de' || wanted === 'en') ? wanted : (navigator.language && navigator.language.toLowerCase().indexOf('de') === 0) ? 'de' : 'en';
   setLang(initial);
 })();
 </script>

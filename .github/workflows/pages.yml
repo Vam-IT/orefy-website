@@ -3,48 +3,56 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches: [main]
+  # Pull requests are built to catch errors; only main is deployed.
+  pull_request:
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Assemble site
-        run: |
-          mkdir -p _site
-          # -L dereferences symlinks (index.html -> "Orefy Website.html")
-          cp -RL index.html "Orefy Website.html" imprint.html privacy.html \
-                 orefy-app.jsx orefy-panels.jsx \
-                 robots.txt sitemap.xml llms.txt llms-full.txt llms-small.txt \
-                 .well-known assets _ds _site/
-          if [ -f CNAME ]; then cp CNAME _site/; fi
-          # Serve directories starting with "_" or "." as-is (no Jekyll processing)
-          touch _site/.nojekyll
-          find _site -name .DS_Store -delete
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
 
       - name: Configure Pages
+        if: github.ref == 'refs/heads/main'
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
+        if: github.ref == 'refs/heads/main'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
   deploy:
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
