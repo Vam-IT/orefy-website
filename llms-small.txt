@@ -1,9 +1,10 @@
-# Orefy (Compact Summary)
+# Orefy (compact summary)
 
-> Orefy converts unmanaged ClickOps cloud resources into verified, modular Terraform & OpenTofu Infrastructure as Code.
+> Orefy is being developed to turn ClickOps AWS environments into Terraform, checked to zero diff. Not generally available yet.
 
-- **Workflow**: 01 Discover (read-only multi-account inventory) → 02 Codify (modular Terraform/OpenTofu generation) → 03 Verify (zero-drift plan check against live state) → 04 Scan (CIS Benchmarks, ISO 27001, BSI C5, NIS2 compliance fixes as code).
+- **In development**: read-only discovery, Terraform generation with import blocks, zero-diff verification (one account, one region).
+- **Planned**: compliance scanning, multiple accounts and regions, OpenTofu, GitHub/GitLab handover with CI/CD.
 - **Demo**: https://demo.orefy.cloud/ (simulated with example data, no sign-up).
-- **Availability**: Early access open (`info@orefy.cloud`), launching Q1 2027.
-- **Operator**: VAMIT UG (haftungsbeschränkt), Bocholt, Germany (`https://orefy.cloud/`).
-
+- **Availability**: planned from Q1 2027, early access via info@orefy.cloud.
+- **Pages**: https://orefy.cloud/ (English), https://orefy.cloud/de/ (German).
+- **Operator**: VAMIT UG (haftungsbeschränkt), Bocholt, Germany.
