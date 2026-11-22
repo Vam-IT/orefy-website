@@ -49,15 +49,15 @@ export default {
   how: {
     over: 'So funktioniert es',
     h2: 'Rohe Infrastruktur rein. Sauberer Code raus.',
-    p: 'Die erste Version konzentriert sich auf einen AWS-Account in einer Region. Bei jedem Schritt steht, wie weit er heute ist.',
+    p: 'Die erste Version konzentriert sich auf einen AWS-Account in einer Region. Bei jedem Schritt sehen Sie den aktuellen Stand.',
     step: 'Schritt',
     of: 'von',
     tryIt: 'Diese Schritte selbst durchklicken',
   },
   steps: [
-    { id: 'discover', tab: 'Erfassen', status: 'development', title: 'Erfassen, was in Ihrem Account läuft', text: 'Ein Inventar Ihrer Ressourcen mit reinem Lesezugriff, samt der Frage, ob sie schon als Code verwaltet werden.', panel: 'Inventar' },
+    { id: 'discover', tab: 'Erfassen', status: 'development', title: 'Erfassen, was in Ihrem Account läuft', text: 'Ein Inventar Ihrer Ressourcen mit reinem Lesezugriff. Es zeigt auch, was schon als Code verwaltet wird.', panel: 'Inventar' },
     { id: 'codify', tab: 'Code', status: 'development', title: 'In lesbares Terraform überführen', text: 'Community-Module mit festen Versionen, wo sie passen, einzelne Ressourcen, wo nicht, und Import-Blöcke für alles Bestehende.', panel: 'Erzeugter Code' },
-    { id: 'verify', tab: 'Prüfen', status: 'development', title: 'Prüfen, dass sich nichts ändern würde', text: 'Der Code wird gegen die Live-Umgebung geplant. Ein Lauf gelingt erst, wenn es keinen Unterschied mehr gibt.', panel: 'Prüfung' },
+    { id: 'verify', tab: 'Prüfen', status: 'development', title: 'Prüfen, dass sich nichts ändern würde', text: 'Ein Terraform-Plan gleicht den Code mit der Live-Umgebung ab. Ein Lauf gelingt erst, wenn es keinen Unterschied mehr gibt.', panel: 'Prüfung' },
     { id: 'scan', tab: 'Risiken', status: 'planned', title: 'Lücken bei Sicherheit und Compliance finden', text: 'Befunde, zugeordnet zu den Standards, nach denen Sie berichten, jeweils mit Korrektur als Code-Änderung.', panel: 'Befunde' },
   ],
   panels: {
@@ -101,8 +101,8 @@ export default {
   },
   security: {
     over: 'Sicherheit',
-    h2: 'Ihre Umgebung bleibt Ihre.',
-    p: 'Sie würden einem Werkzeug Zugriff auf Ihre Infrastruktur geben. Um diese Grenzen herum wird Orefy gebaut.',
+    h2: 'Ihre Umgebung bleibt in Ihrer Hand.',
+    p: 'Zugriff auf Ihre Infrastruktur ist Vertrauenssache. Diese Grenzen sind die Grundlage von Orefy.',
     items: [
       { title: 'Lesen, nie schreiben', text: 'Das Werkzeug lässt nur lesende Aufrufe zu. Die Grenze steht im Code, nicht in einer Anweisung an eine KI.' },
       { title: 'Geheimnisse bleiben draußen', text: 'Aufrufe, die geheime Werte liefern, sind gesperrt. Was dennoch danach aussieht, wird geschwärzt, bevor es Modell, Datei oder Protokoll erreicht.' },
@@ -124,10 +124,8 @@ export default {
     h2: 'Was Teams zuerst fragen.',
     items: [
       { q: 'Kann ich Orefy heute schon nutzen?', a: 'Noch nicht. Orefy ist in Entwicklung und soll ab Q1 2027 verfügbar sein. Die simulierte Demo können Sie jetzt testen und Early Access anfragen.' },
-      { q: 'Was wird es kosten?', a: 'Die Preise stehen noch nicht fest. Schreiben Sie uns die ungefähre Größe Ihrer Umgebung, dann besprechen wir es mit Ihnen.' },
       { q: 'Was deckt die erste Version ab?', a: 'AWS und Terraform, zunächst ein Account und eine Region. Mehrere Accounts und Regionen, OpenTofu und Compliance-Prüfungen sind geplant.' },
       { q: 'Kann Orefy meine Umgebung verändern oder beschädigen?', a: 'Orefy ist auf reinen Lesezugriff ausgelegt: Das Werkzeug lässt nur lesende Aufrufe zu und kann kein Apply ausführen. Änderungen entstehen erst, wenn Ihr Team den Code anwendet.' },
-      { q: 'Wo werden meine Daten verarbeitet, und mit welchem KI-Modell?', a: 'Das ist für das Produkt noch nicht abschließend festgelegt. Wenn es für Ihre Entscheidung wichtig ist, nennen Sie uns Ihre Anforderungen. Wir beantworten es, bevor Sie einen Account verbinden.' },
       { q: 'Was passiert, wenn sich eine Ressource nicht in Code überführen lässt?', a: 'Sie steht im Ergebnis. Wo kein Modul passt, wird die Ressource direkt beschrieben und markiert. Was sich nicht abbilden lässt, bleibt unverwaltet.' },
       { q: 'Macht Orefy uns NIS2- oder ISO-27001-konform?', a: 'Das kann kein Werkzeug allein. Infrastruktur als Code macht Änderungen nachvollziehbar. Prüfungen gegen diese Standards sind geplant und ersetzen kein Audit.' },
     ],

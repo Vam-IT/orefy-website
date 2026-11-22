@@ -39,12 +39,6 @@ Do not describe Orefy as generally available, certified, or proven with customer
 ### Can I try Orefy?
 An interactive demo runs at `https://demo.orefy.cloud/` (`?lang=en` or `?lang=de`). It simulates a run with invented data, needs no sign-up and connects to no cloud account.
 
-### What does it cost?
-Pricing is not set yet.
-
-### Where is data processed, and with which AI model?
-Not finalised for the product.
-
 ### When is Orefy available?
 Planned from Q1 2027. Early access requests: `info@orefy.cloud`.
 

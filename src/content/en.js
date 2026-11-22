@@ -102,7 +102,7 @@ export default {
   security: {
     over: 'Security',
     h2: 'Your environment stays yours.',
-    p: 'You would give a tool access to your infrastructure. These are the limits Orefy is being built around.',
+    p: 'Access to your infrastructure takes trust. These limits are the foundation of Orefy.',
     items: [
       { title: 'Read, never write', text: 'The tooling only allows read calls. That limit is in the code, not in an instruction to an AI.' },
       { title: 'Secrets stay out', text: 'Calls that return secret values are blocked. What still looks like a secret is redacted before it reaches a model, file or log.' },
@@ -124,10 +124,8 @@ export default {
     h2: 'What teams ask first.',
     items: [
       { q: 'Can I use Orefy today?', a: 'Not yet. Orefy is in development and planned to be available from Q1 2027. You can try the simulated demo now and ask for early access.' },
-      { q: 'What will it cost?', a: 'Pricing is not set yet. Write to us with the rough size of your environment and we will discuss it with you.' },
       { q: 'What does the first version cover?', a: 'AWS and Terraform, starting with one account and one region. Multiple accounts and regions, OpenTofu and compliance checks are planned.' },
       { q: 'Can Orefy change or break my environment?', a: 'Orefy is designed for read-only access: the tooling only allows read calls and cannot run an apply. Changes happen when your team applies the code.' },
-      { q: 'Where is my data processed, and by which AI model?', a: 'We have not finalised this for the product. If it matters for your decision, tell us your requirements. We will answer it before you connect an account.' },
       { q: 'What happens if a resource cannot be turned into code?', a: 'It is shown in the result. Where no module fits, the resource is described directly and marked. What cannot be expressed stays unmanaged.' },
       { q: 'Does Orefy make us NIS2 or ISO 27001 compliant?', a: 'No tool can do that alone. Infrastructure as code makes changes traceable. Checks against these frameworks are planned and do not replace an audit.' },
     ],
