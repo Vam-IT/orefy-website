@@ -157,5 +157,5 @@ export default {
     privacy: 'Datenschutzerklärung',
     contact: 'Kontakt',
   },
-  noscript: 'Animationen und eingebettete Demo brauchen JavaScript. Alles andere funktioniert auch ohne.',
+  noscript: 'Animationen, eingebettete Demo und Kontaktformular brauchen JavaScript. Schreiben Sie uns jederzeit an info@orefy.cloud.',
 };
