@@ -498,3 +498,6 @@ table.t th,.finding .ctl,.mstepper button{color:var(--text-muted)}
   .console .res{gap:6px;padding-left:4px;padding-right:4px}
   .console .code{font-size:10.5px}
 }
+/* the fixed navigation is light text: what lies behind it is dark */
+body{background:#0A090D}
+.btn:disabled{opacity:.5;cursor:not-allowed;transform:none!important}

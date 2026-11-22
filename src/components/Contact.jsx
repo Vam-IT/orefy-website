@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Icon, useCopy } from './ui.jsx';
 
 export const EMAIL = 'info@orefy.cloud';
@@ -8,6 +8,10 @@ export function Contact() {
   const { lang, contact: t } = useCopy();
   const form = useRef(null);
   const [note, setNote] = useState(null);
+  // No mailto: action, browsers flag that as an insecure form. Until the script runs the buttons stay disabled,
+  // otherwise the browser would submit the fields into the URL.
+  const [ready, setReady] = useState(false);
+  useEffect(() => setReady(true), []);
 
   const compose = () => {
     const data = new FormData(form.current);
@@ -32,7 +36,7 @@ export function Contact() {
   };
 
   return (
-    <form className="form" ref={form} action={`mailto:${EMAIL}`} method="get" onSubmit={submit}>
+    <form className="form" ref={form} onSubmit={submit}>
       <div className="form-row">
         <label className="field"><span>{t.name}</span><input name="name" autoComplete="name" required maxLength={100} /></label>
         <label className="field"><span>{t.company}</span><input name="company" autoComplete="organization" required maxLength={100} /></label>
@@ -46,8 +50,8 @@ export function Contact() {
       </label>
       <label className="field"><span>{t.message}</span><textarea name="body" rows={3} maxLength={1200} /></label>
       <div className="form-actions">
-        <button className="btn btn-prem" type="submit">{t.send}<Icon name="arrow" /></button>
-        <button className="btn btn-glass" type="button" onClick={copy}>{t.copy}</button>
+        <button className="btn btn-prem" type="submit" disabled={!ready}>{t.send}<Icon name="arrow" /></button>
+        <button className="btn btn-glass" type="button" disabled={!ready} onClick={copy}>{t.copy}</button>
       </div>
       <p className="form-note" role="status">{note && t[note]}</p>
       <p className="form-hint">
