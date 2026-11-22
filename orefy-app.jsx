@@ -1,9 +1,14 @@
 const { Button, Badge, Input } = window.OrefyDesignSystem_e8d108;
 
+const DEMO_URL = 'https://demo.orefy.cloud/?lang=en';
+// The embed skips the demo's start page: the section around it already is that start page.
+const DEMO_RUN_URL = DEMO_URL + '#/run';
+
 const T = {
   en: {
     nav: {
       how: "How it works",
+      demo: "Live demo",
       early: "Early access",
       badge: "Available from Q1 2027",
       contact: "Contact us",
@@ -14,7 +19,7 @@ const T = {
       h1_em: "your cloud.",
       lede_pre: "From ClickOps to ",
       lede_strong: "best-practice modular Infrastructure as Code.",
-      cta_contact: "Contact us",
+      cta_demo: "Try the live demo",
       cta_how: "See how it works",
     },
     console: {
@@ -61,6 +66,24 @@ const T = {
       h2: "Raw infrastructure in. Refined code out.",
       step: "Step",
       of: "of",
+      try_it: "Click through these steps yourself",
+    },
+    demo: {
+      over: "Live demo",
+      h2_pre: "See it for yourself. ",
+      h2_em: "In three minutes.",
+      p: "Take an example AWS account from ClickOps to verified Terraform. No sign-up, no cloud access, nothing to install.",
+      points: [
+        { t: "See what runs", d: "37 example resources, 34 of them created by hand." },
+        { t: "Get code and proof", d: "Readable Terraform, checked until the plan shows no change." },
+        { t: "Hand it to your team", d: "GitHub or GitLab, a pipeline and an approval before apply.", planned: true },
+      ],
+      planned: "Planned",
+      start: "Start the demo",
+      open: "Open in new tab",
+      frame: "Interactive Orefy demo",
+      poster: "Orefy demo showing the inventory of an example AWS account",
+      note: "Everything is simulated with example data. Features that are not built yet are marked as planned.",
     },
     cta: {
       over: "Available from Q1 2027",
@@ -69,8 +92,10 @@ const T = {
       sub: "Be among the first teams to bring their cloud under control.",
       interest: "Interested in early access? Write us and we will get back to you.",
       btn: "Contact us",
+      demo: "Or try the live demo first",
     },
     footer: {
+      demo: "Live demo",
       copy: "© 2026 Orefy · VAMIT UG (haftungsbeschränkt)",
       imprint: "Imprint",
       privacy: "Privacy Policy",
@@ -267,7 +292,68 @@ function Contact({ lang = 'en' }) {
         <Button className="btn-prem" size="lg" iconRight={<Ico d={I.arrow} />}>{t.btn}</Button>
       </a>
       <span className="mono" style={{ fontSize: 12, color: 'var(--text-muted)' }}>info@orefy.cloud</span>
+      <a className="form-demo" href="#demo">{t.demo}</a>
     </div>
+  );
+}
+
+/**
+ * Live demo. Nothing is requested from demo.orefy.cloud before the visitor clicks.
+ * On phones, with modifier keys and without JavaScript the link opens the demo in a new tab.
+ */
+function Demo({ lang = 'en' }) {
+  const t = T[lang].demo;
+  const [running, setRunning] = React.useState(false);
+  const frame = React.useRef(null);
+  React.useEffect(() => {
+    if (!running) return;
+    frame.current.focus({ preventScroll: true });
+    // Bring the whole window into view, below the fixed navigation.
+    frame.current.closest('.demo-window').scrollIntoView({ block: 'start' });
+  }, [running]);
+  const start = (e) => {
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) return;
+    if (window.matchMedia('(max-width: 760px)').matches) return;
+    e.preventDefault();
+    setRunning(true);
+  };
+
+  return (
+    <section className="demo" id="demo" data-theme="dark" data-screen-label="Live demo">
+      <div className="wrap">
+        <div className="sec-head">
+          <div><span className="over">{t.over}</span><h2>{t.h2_pre}<em>{t.h2_em}</em></h2></div>
+          <p>{t.p}</p>
+        </div>
+        <ol className="demo-points">
+          {t.points.map((x, n) => (
+            <li key={x.t}>
+              <span className="demo-num">0{n + 1}</span>
+              <h3>{x.t}{x.planned && <span className="demo-planned">{t.planned}</span>}</h3>
+              <p>{x.d}</p>
+            </li>
+          ))}
+        </ol>
+        <div className="demo-window">
+          <div className="console-bar">
+            <div className="dots"><i></i><i></i><i></i></div>
+            <span className="mono">demo.orefy.cloud</span>
+            <a className="demo-open" href={DEMO_URL} target="_blank" rel="noopener">{t.open} ↗</a>
+          </div>
+          <div className={running ? 'demo-stage running' : 'demo-stage'}>
+            {running ? (
+              <iframe ref={frame} src={DEMO_RUN_URL} title={t.frame} allow="clipboard-write"></iframe>
+            ) : (
+              <a className="demo-poster" href={DEMO_RUN_URL} target="_blank" rel="noopener" onClick={start}>
+                <img src="assets/demo-preview.webp" alt={t.poster} width="1800" height="1125" loading="lazy" />
+                <span className="demo-start">{t.start}<Ico d={I.arrow} /></span>
+              </a>
+            )}
+          </div>
+        </div>
+        <p className="demo-note">{t.note}</p>
+      </div>
+    </section>
   );
 }
 
@@ -652,7 +738,7 @@ function App() {
       const max = document.documentElement.scrollHeight - window.innerHeight;
       if (navRef.current) navRef.current.style.setProperty('--p', max > 0 ? Math.min(1, y / max) : 0);
       let cur = '';
-      ['how', 'contact'].forEach(id => {
+      ['how', 'demo', 'contact'].forEach(id => {
         const el = document.getElementById(id);
         if (el && el.getBoundingClientRect().top <= window.innerHeight * 0.4) cur = id;
       });
@@ -666,7 +752,7 @@ function App() {
   return (<>
     <nav ref={navRef} className={'nav' + (scrolled ? ' scrolled' : '')} aria-label="Main navigation"><div className="wrap">
       <a href="#top"><img src="assets/orefy-logo-dark.svg" alt="Orefy" width="88" height="26" /></a>
-      <div className="nav-links"><a href="#how" className={active === 'how' ? 'active' : ''}>{t.nav.how}</a><a href="#contact" className={active === 'contact' ? 'active' : ''}>{t.nav.early}</a></div>
+      <div className="nav-links"><a href="#how" className={active === 'how' ? 'active' : ''}>{t.nav.how}</a><a href="#demo" className={active === 'demo' ? 'active' : ''}>{t.nav.demo}</a><a href="#contact" className={active === 'contact' ? 'active' : ''}>{t.nav.early}</a></div>
       <span className="nav-prog"></span>
     </div></nav>
 
@@ -678,7 +764,7 @@ function App() {
             <h1 style={{ marginTop: 18 }}>{t.hero.h1_pre}<em>{t.hero.h1_em}</em></h1>
             <p className="lede">{t.hero.lede_pre}<strong>{t.hero.lede_strong}</strong></p>
             <div className="cta-row">
-              <a href="#contact" style={{ textDecoration: 'none' }}><Button className="btn-prem" size="lg" iconRight={<Ico d={I.arrow} />}>{t.hero.cta_contact}</Button></a>
+              <a href="#demo" style={{ textDecoration: 'none' }}><Button className="btn-prem" size="lg" iconRight={<Ico d={I.arrow} />}>{t.hero.cta_demo}</Button></a>
               <a href="#how" style={{ textDecoration: 'none' }}><Button className="btn-glass" size="lg" variant="ghost" style={{ color: 'var(--slate-200)' }}>{t.hero.cta_how}</Button></a>
             </div>
           </div>
@@ -696,8 +782,11 @@ function App() {
             {t.how.p && <p>{t.how.p}</p>}
           </div>
           <Pipeline lang={lang} />
+          <a className="how-demo" href="#demo">{t.how.try_it}<Ico d={I.arrow} /></a>
         </div>
       </section>
+
+      <Demo lang={lang} />
 
       <section className="cta" id="contact" data-theme="dark" data-screen-label="Waitlist">
         <div className="wrap cta-box">
@@ -715,6 +804,7 @@ function App() {
       <img src="assets/orefy-logo-dark.svg" alt="Orefy" width="74" height="22" />
       <span>{t.footer.copy}</span>
       <div className="links">
+        <a href={DEMO_URL} target="_blank" rel="noopener">{t.footer.demo}</a>
         <a href="imprint.html" onClick={(e) => { if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) { e.preventDefault(); setModal('imprint'); } }}>{t.footer.imprint}</a>
         <a href="privacy.html" onClick={(e) => { if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) { e.preventDefault(); setModal('privacy'); } }}>{t.footer.privacy}</a>
         <a href="mailto:info@orefy.cloud">{t.footer.contact}</a>

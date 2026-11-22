@@ -16,11 +16,13 @@ Orefy is a B2B cloud infrastructure platform developed by VAMIT UG (haftungsbesc
 - **Supported IaC Formats**: Terraform, OpenTofu
 - **Supported Compliance Frameworks**: CIS Benchmarks, ISO 27001, BSI C5, NIS2, Custom Policies
 - **Company / Operator**: VAMIT UG (haftungsbeschränkt), Petersfeldstraße 16, 46395 Bocholt, Germany (Managing Director: Veselin Kolev, HRB 23796, VAT ID: DE462795245)
+- **Interactive demo**: `https://demo.orefy.cloud/` (simulated with example data, no sign-up, English and German)
 - **Contact**: `mailto:info@orefy.cloud` · `+49 176 23204351`
 
 ## Documentation & Pages
 
 - [Home · Product Overview & Pipeline](https://orefy.cloud/): Overview of the 4-step workflow (Discover, Codify, Verify, Scan) and early access contact.
+- [Interactive Demo](https://demo.orefy.cloud/?lang=en): Click-through of a simulated run from inventory to handover. Repository handover and CI/CD are planned features.
 - [Full LLM Context](https://orefy.cloud/llms-full.txt): Detailed product specification, workflow examples, and FAQ for AI assistants.
 - [Compact LLM Summary](https://orefy.cloud/llms-small.txt): Ultra-concise summary for small context windows.
 - [Imprint / Legal Notice](https://orefy.cloud/imprint.html): Corporate and legal information pursuant to Section 5 DDG.
