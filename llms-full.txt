@@ -49,6 +49,9 @@ Orefy generates clean, modular code compatible with both **Terraform** and **Ope
 ### Which compliance frameworks does Orefy cover?
 Orefy maps infrastructure findings to **CIS Benchmarks**, **ISO 27001**, **BSI C5**, **NIS2**, and custom internal governance policies.
 
+### Can I try Orefy?
+An interactive demo runs at `https://demo.orefy.cloud/` (`?lang=en` for English). It simulates a complete run in the browser with invented example data: inventory, Terraform code, zero-diff verification and handover. It needs no sign-up and connects to no cloud account. The handover to GitHub or GitLab and the CI/CD pipeline are planned features and are simulated in the demo.
+
 ### When is Orefy available?
 Orefy is available from **Q1 2027**, with early access inquiries open now via `info@orefy.cloud`.
 
@@ -63,5 +66,6 @@ Orefy is available from **Q1 2027**, with early access inquiries open now via `i
 - **Email**: info@orefy.cloud
 - **Phone**: +49 176 23204351
 - **Corporate Website**: https://vam-it.com/
+- **Interactive Demo**: https://demo.orefy.cloud/
 - **Product Website**: https://orefy.cloud/
 
